@@ -1,0 +1,20 @@
+body 
+	background-color $bodyBg
+	font-size $fontSize
+	
+.siteBody
+	box-sizing: border-box
+	padding $miniSpacer
+	margin 0 auto
+	max-width $screen-xs
+
+@media only screen and (min-width: $screen-xs ) 
+	.siteBody
+		max-width $screen-md
+
+
+@media only screen and (min-width: $screen-md ) 
+	.siteBody
+		max-width $screen-lg
+		
+		

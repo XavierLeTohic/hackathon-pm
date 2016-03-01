@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     concat = require("gulp-concat"),
     server = require('gulp-express');
 
-gulp.task('default', function () {
+gulp.task('default',['styl','babel','medias','build'], function () {
 
     server.run(['server.js']);
 
@@ -22,10 +22,21 @@ gulp.task('default', function () {
         gulp.run('babel');
         server.notify(event);
     });
+
+    gulp.watch(['./public/medias/*'], function(event){
+        gulp.src('./public/medias/*')
+        .pipe(gulp.dest('./public/build/medias'));
+        server.notify(event);
+    });
+});
+
+gulp.task('medias', function() {
+    return gulp.src('./public/medias/*/*')
+        .pipe(gulp.dest('./public/build/medias'));
 });
 
 gulp.task('styl', function() {
-    return gulp.src('./public/css/**/*.styl')
+    return gulp.src('./public/css/styles.styl')
         .pipe(stylus())
         .pipe(gulp.dest('./public/build/css'));
 });

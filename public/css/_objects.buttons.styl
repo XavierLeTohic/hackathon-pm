@@ -1,0 +1,21 @@
+.imgBtn 
+	square(50px)
+	position relative
+	.icon
+		&:before
+			content ''
+			background-image url('../medias/icons/misc_24.png')
+			background-repeat no-repeat
+			display inline-block
+			square(24px)
+			position absolute
+			top 50%
+			left 50%
+			transform translate(-50%, -50%)
+
+@media only screen and (min-width: $screen-md) 
+	.imgBtn 
+		.icon
+			&:before
+				background-image url('../medias/icons/misc_50.png')
+				square(50px)

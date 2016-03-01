@@ -1,0 +1,23 @@
+.headerFirstBar
+	align-items: stretch;
+	
+	h1
+		flex-grow: 1;
+		
+	img
+		height auto
+		width 180px
+
+@media only screen and (min-width: $screen-md) 
+	.headerFirstBar	
+		justify-content space-between
+		h1
+			order: 0
+			flex-grow: 0	
+		
+		.searchBar
+			order: 1
+		
+		.imgBtn
+			order: 2	
+

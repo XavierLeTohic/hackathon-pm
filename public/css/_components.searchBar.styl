@@ -1,0 +1,60 @@
+.searchBar 
+	position relative
+	width 100%
+
+	&:after
+		content ""
+		background-color $colorPrimary  
+		position absolute
+		border-top-right-radius $radius
+		border-bottom-right-radius $radius
+		right 0
+		top 0
+		width 62px
+		height: 100%
+		z-index 1
+  
+	.searchBar_input
+		background-color $white
+		box-sizing border-box
+		padding 16px 82px 16px 14px
+		width 100%
+
+		&::placeholder
+			font-weight 200 
+			
+	.searchBar_submit_ctn
+		position absolute
+		width 62px
+		height 100%
+		right 0
+		top 0
+		
+	.searchBar_submit
+		background-color transparent
+		border none
+		position absolute
+		right 0
+		top 0
+		width 100%
+		height 100%
+		z-index 2
+		text-indent -9999px
+	
+	.icon 
+		background url('../medias/icons/misc_24.png')
+		background-repeat no-repeat
+		background-position 0 -973px
+		position absolute
+		right 50%
+		top 50%
+		transform translate(50%, -50%)
+		square(24px)
+		z-index 3
+		text-indent -9999px
+		
+@media only screen and (min-width: $screen-md) 
+	.searchBar
+		order: 1
+		width 50%
+		
