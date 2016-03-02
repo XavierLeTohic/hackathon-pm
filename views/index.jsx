@@ -1,6 +1,6 @@
 var React = require('react'),
     DefaultLayout = require('./layouts/DefaultLayout'),
-    HeaderLayout = require('./layouts/header/HeaderLayout');
+    HeaderLayout = require('./layouts/header/HeaderLayout'),
     Media = require('./layouts/shared/Media'),
     Img = require('./layouts/shared/Img'),
     TextBlock = require('./layouts/shared/TextBlock');
