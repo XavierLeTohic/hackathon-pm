@@ -1,55 +1,112 @@
 var gulp = require('gulp'),
+    runSequence = require('run-sequence').use(gulp),
+    gls = require('gulp-live-server'),
     stylus = require('gulp-stylus'),
     babel = require("gulp-babel"),
     concat = require("gulp-concat"),
-    server = require('gulp-express');
+    chalk = require('chalk'),
+    del = require('del');
 
-gulp.task('default',['styl','babel','medias','build'], function () {
+// Set NODE_ENV to 'development'
+gulp.task('env:dev', function () {
 
-    server.run(['server.js']);
+  if(process.env.NODE_ENV !== 'development') {
 
-    gulp.watch(['./server.js', './controllers/**/*.js', 'routes/**/*.js'], [server.run]);
-    gulp.watch(['./views/**/*.jsx'], server.notify);
+    process.env.NODE_ENV = 'development';
+    console.log(chalk.cyan('Environment was set to : development'));
+  }
+});
 
-    gulp.watch(['./public/css/**/*.styl'], function(event){
+// Set NODE_ENV to 'production'
+gulp.task('env:prod', function () {
 
-        gulp.run('styl');
-        server.notify(event);
+  if(process.env.NODE_ENV !== 'production') {
+
+    process.env.NODE_ENV = 'production';
+    console.log(chalk.cyan('Environment : production'));
+  }
+});
+
+gulp.task('serve', function () {
+
+  runSequence('env:dev', 'build', function() {
+
+    var server = gls.new('server.js');
+    server.start();
+
+    gulp.watch(['./server.js', './controllers/**/*.js', 'routes/**/*.js'], function(file) {
+
+      server.notify.apply(server, [file]);
     });
 
-    gulp.watch(['./public/js/**/*.js'], function(event){
+    gulp.watch(['./views/**/*.jsx'], function(file) {
 
-        gulp.run('babel');
-        server.notify(event);
+      server.notify.apply(server, [file]);
     });
 
-    gulp.watch(['./public/medias/*'], function(event){
-        gulp.src('./public/medias/*')
-        .pipe(gulp.dest('./public/build/medias'));
-        server.notify(event);
+    gulp.watch(['./public/css/**/*.styl'], function(file) {
+
+      gulp.run('styl', function() {
+
+        server.notify.apply(server, [file]);
+      });
     });
+
+    gulp.watch(['./public/js/**/*.js'], function(file) {
+
+      gulp.run('babel', function() {
+
+        server.notify.apply(server, [file]);
+      });
+    });
+
+    gulp.watch(['./public/medias/*'], function(file) {
+
+      gulp.src('./public/medias/*')
+        .pipe(gulp.dest('./public/build/medias'))
+        .done(function() {
+
+          server.notify.apply(server, [file]);
+        });
+    });
+
+  });
+
 });
 
-gulp.task('medias', function() {
-    return gulp.src('./public/medias/*/*')
-        .pipe(gulp.dest('./public/build/medias'));
+gulp.task('medias', function(done) {
+
+  gulp.src('./public/medias/**/*')
+      .pipe(gulp.dest('./public/build/medias'))
+      .on('end', done);
 });
 
-gulp.task('styl', function() {
-    return gulp.src('./public/css/styles.styl')
-        .pipe(stylus())
-        .pipe(gulp.dest('./public/build/css'));
+gulp.task('styl', function(done) {
+
+  gulp.src('./public/css/styles.styl')
+      .pipe(stylus())
+      .pipe(gulp.dest('./public/build/css'))
+      .on('end', done);
 });
 
-gulp.task('babel', function () {
+gulp.task('babel', function (done) {
 
-    return gulp.src('./public/js/**/*.js')
-        .pipe(babel())
-        .pipe(gulp.dest('./public/build/js'));
+  gulp.src('./public/js/**/*.js')
+      .pipe(babel())
+      .pipe(gulp.dest('./public/build/js'))
+      .on('end', done);
 });
 
-gulp.task('build', function () {
+gulp.task('build', function(done) {
 
-    gulp.run('styl');
-    gulp.run('babel');
+  runSequence('build:clean', 'styl', 'babel', 'medias', done);
 });
+
+gulp.task('build:clean', function(done) {
+
+  del('./public/build').then(function() {
+    done();
+  });
+});
+
+gulp.task('default', ['serve']);

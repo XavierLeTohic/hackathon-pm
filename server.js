@@ -1,7 +1,11 @@
 var express = require('express'),
-    routes = require('./routes'),
     jsxEngine = require('express-react-views'),
-    app = module.exports.app = exports.app = express();
+    chalk = require('chalk'),
+
+    routes = require('./routes'),
+    app = module.exports.app = exports.app = express(),
+
+    SERVER_PORT = process.env.PORT || 8000;
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
@@ -13,6 +17,8 @@ app.use(express.static('./public/libs'));
 
 routes(app);
 
-app.listen(1337, function() {
-    console.log('Listening on port 1337...');
+app.listen(SERVER_PORT, function() {
+  console.log(chalk.green(
+    'Server is running on port ' + chalk.bold(SERVER_PORT)
+  ));
 });
