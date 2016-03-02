@@ -10,6 +10,8 @@
         }
     });
 
-    ReactDOM.render(<IndexPage/>, document.getElementById('IndexPage'));
+    if(document.getElementById('IndexPage') !== null) {
+      ReactDOM.render(<IndexPage/>, document.getElementById('IndexPage'));
+    }
 
 })(React, ReactDOM, window);
