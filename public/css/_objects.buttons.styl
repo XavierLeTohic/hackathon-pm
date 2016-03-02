@@ -12,8 +12,15 @@
 			top 50%
 			left 50%
 			transform translate(-50%, -50%)
+			transition(opacity)
+			
+		&:hover
+			&:before
+				opacity 0.8
+				transition(opacity)
 
 @media only screen and (min-width: $screen-md) 
+	
 	.imgBtn 
 		.icon
 			&:before
