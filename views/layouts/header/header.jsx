@@ -1,7 +1,7 @@
 var React = require('react'),
-	SearchBarLayout = require('./header/searchBar'),
-    FlexContainerLayout = require('./shared/flexContainer'),
-    ImgBtnLayout = require('./shared/imgBtn');
+	SearchBarLayout = require('../header/searchBar'),
+    FlexContainerLayout = require('../shared/flexContainer'),
+    ImgBtnLayout = require('../shared/imgBtn');
 
 var HeaderLayout = React.createClass({
 
