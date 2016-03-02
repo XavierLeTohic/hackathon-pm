@@ -1,12 +1,21 @@
 var React = require('react'),
+		TabsList = require('../shared/TabsList'),
     BoxLayout = require('../shared/BoxLayout');
 	
 class AdvertListingLayout extends React.Component {
 
     render() {
+    		var tabsList = [
+    		    { 'key': 1, 'name': 'annonce', 'url': '#', 'type': 'advert' },
+    		    { 'key': 2, 'name': 'annonce', 'url': '#', 'type': 'advert' },
+    		    { 'key': 3, 'name': 'annonce', 'url': '#', 'type': 'advert' }
+    		];
 
         return (
-            <BoxLayout>
+            <BoxLayout nameClass="listing">
+            		<TabsList tabsList={tabsList} nameClass="blockTabs">
+
+            		</TabsList>
                 {this.props.children}
             </BoxLayout>
         );

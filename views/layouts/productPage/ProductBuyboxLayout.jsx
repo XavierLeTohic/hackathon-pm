@@ -1,16 +1,16 @@
 var React = require('react'),
     BoxLayout = require('../shared/BoxLayout');
 	
-class ProductBuyboxLayout extends React.Component {
+class ProductBuyBoxLayout extends React.Component {
 
     render() {
 
         return (
-            <BoxLayout>
+            <BoxLayout nameClass="buybox">
                 {this.props.children}
             </BoxLayout>
         );
     }
 };
 
-module.exports = ProductBuyboxLayout;
+module.exports = ProductBuyBoxLayout;
