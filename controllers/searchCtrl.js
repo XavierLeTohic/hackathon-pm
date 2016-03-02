@@ -7,11 +7,28 @@ var request = require('request');
  */
 exports.SearchAction = function (req, res) {
 
-		var searchKwd = req.query.key;
-    var url = 'http://ws.priceminister.com/rest/navigation/v1/list?kw='+ searchKwd + '&pageNumber=1&advertType=ALL&channel=hackathon&loadProducts=true&withoutStock=true';
+		var query,
+		    result = req.query;
+
+    for (var prop in result) {
+		    if (result.hasOwnProperty(prop)) {
+		        if(prop === 'kw'
+		        || prop === 'category'
+		        || prop.startsWith('f')) {
+		          query += '&' + prop + "=" +result[prop];
+		        }	
+		    }
+		}
+
+		if (typeof(query) === 'undefined') {
+			res.status(500).send("<html><html><head><title>500</title></head><body>What ?????? <p>500 ! Go to <a href='/'>Home</a></p></body></html>");
+			return;
+		}
+
+    var url = 'http://ws.priceminister.com/rest/navigation/v1/list?pageNumber=1&advertType=ALL&channel=hackathon&loadProducts=true&withoutStock=true' + query;
 		
 		// TODO : add hash user session
-		var timeKey = '>> WS search for "' + searchKwd + '"';
+		var timeKey = '>> WS search for "' + query + '"';
     console.time(timeKey);
 	  
 		request({
@@ -37,7 +54,9 @@ exports.SearchAction = function (req, res) {
 		  }
 		  else {
 		    var requestRes = JSON.parse(body);
-        res.render('SearchPage', { title: 'Index' , products: requestRes.result.products});
+        res.render('SearchPage', { title: 'Index' , products: requestRes.result.products, kw: req.query.kw});
 		  }
 		});
+
+
 };
