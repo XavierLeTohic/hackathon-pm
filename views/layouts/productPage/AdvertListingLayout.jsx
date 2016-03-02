@@ -1,5 +1,5 @@
 var React = require('react'),
-    BoxLayout = require('./layouts/shared/BoxLayout');
+    BoxLayout = require('../shared/BoxLayout');
 	
 class AdvertListingLayout extends React.Component {
 
@@ -8,7 +8,7 @@ class AdvertListingLayout extends React.Component {
         return (
             <BoxLayout>
                 
-            <BoxLayout>
+            </BoxLayout>
         );
     }
 };

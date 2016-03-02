@@ -7,5 +7,5 @@ var indexCtrl = require('../controllers/indexCtrl');
 module.exports = function(app) {
 
     app.get('/', indexCtrl.indexAction);
-    app.get('/productPage', indexCtrl.indexAction);
+    app.get('/productPage', indexCtrl.ProductPage);
 };

@@ -1,5 +1,9 @@
 var React = require('react'),
     DefaultLayout = require('./layouts/DefaultLayout'),
+    FlexContainerLayout = require('./layouts/shared/FlexContainerLayout'),
+    ProductDetailsLayout = require('./layouts/productPage/ProductDetailsLayout'),
+    AdvertListingLayout = require('./layouts/productPage/AdvertListingLayout'),
+    ProductBuyBoxLayout = require('./layouts/productPage/ProductBuyBoxLayout'),
     HeaderLayout = require('./layouts/header/HeaderLayout');
 
 class ProductPage extends React.Component {
@@ -12,18 +16,18 @@ class ProductPage extends React.Component {
                     <div>Hello {this.props.name} <br />This header is generated on server-side with React engine of Express</div>
                 </HeaderLayout>
                 <section id="prdPage" >
-                    /*productDetails*/
+
                     <ProductDetailsLayout>
         
                     </ProductDetailsLayout>
-                    /*Advertlisting + buybox*/
+                    
                     <FlexContainerLayout nameClass = "productPage-main">
                         <AdvertListingLayout>
                         
                         </AdvertListingLayout>
-                        <BuyBoLayout>
+                        <ProductBuyBoxLayout>
                         
-                        </BuyBoLayout>
+                        </ProductBuyBoxLayout>
                     </FlexContainerLayout>
 
 
