@@ -1,4 +1,8 @@
 /**
+ * Page controller
+ */
+
+/**
  * Index action
  * @param req
  * @param res
