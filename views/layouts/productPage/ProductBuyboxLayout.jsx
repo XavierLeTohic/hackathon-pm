@@ -14,3 +14,4 @@ class ProductBuyBoxLayout extends React.Component {
 };
 
 module.exports = ProductBuyBoxLayout;
+

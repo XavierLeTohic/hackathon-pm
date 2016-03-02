@@ -1,4 +1,6 @@
 var React = require('react'),
+    BoxLayout = require('../shared/BoxLayout'),
+    FlexContainerLayout = require('../shared/FlexContainerLayout'),
     Media = require('../shared/Media'),
     Img = require('../shared/Img'),
     TextBlock = require('../shared/TextBlock'),
@@ -25,9 +27,11 @@ class ProductDetailsLayout extends React.Component {
                   <p>Vinyle</p>
                 </TextBlock>
               </Media>
+
               <TabsList tabsList={tabsList} nameClass="inlineTabs">
 
               </TabsList>
+
               {this.props.children}
             </BoxLayout>
         );
