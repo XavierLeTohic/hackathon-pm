@@ -11,6 +11,6 @@ class FlexContainerLayout extends React.Component {
             </div>
         );
     }
-};
+}
 
 module.exports = FlexContainerLayout;

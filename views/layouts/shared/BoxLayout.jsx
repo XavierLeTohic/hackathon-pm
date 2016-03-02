@@ -24,6 +24,6 @@ class BoxLayout extends React.Component {
       this.getTemplate()      
     )
   }
-};
+}
 
 module.exports = BoxLayout;

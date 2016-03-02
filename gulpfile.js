@@ -44,7 +44,7 @@ gulp.task('serve', function () {
       }, 500);
     });
 
-    gulp.watch(['./views/**/*.jsx'], function(file) {
+    gulp.watch(['./views/**/*.jsx', './views/**/*.js'], function(file) {
 
       server.notify.apply(server, [file]);
     });
