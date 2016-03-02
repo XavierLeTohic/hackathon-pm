@@ -1,8 +1,8 @@
 var React = require('react');
 
-var DefaultLayout = React.createClass({
+class DefaultLayout extends React.Component {
 
-    render: function() {
+    render() {
 
         return (
             <html>
@@ -22,6 +22,6 @@ var DefaultLayout = React.createClass({
             </html>
         );
     }
-});
+};
 
 module.exports = DefaultLayout;

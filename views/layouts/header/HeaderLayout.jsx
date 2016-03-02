@@ -1,14 +1,15 @@
 var React = require('react'),
 	SearchBarLayout = require('../header/SearchBarLayout'),
     FlexContainerLayout = require('../shared/FlexContainerLayout'),
+    BoxLayout = require('../shared/BoxLayout'),
     ImgBtnLayout = require('../shared/ImgBtnLayout');
 
-var HeaderLayout = React.createClass({
+class HeaderLayout extends React.Component {
 
-    render: function() {
+    render() {
 
         return (
-            <header className="box">
+            <BoxLayout element="header">
                 <FlexContainerLayout nameClass="headerFirstBar">
                     <h1><a href="#"><img src="medias/logo_pm.png" alt="Rakuten Group Priceminister" /></a></h1>
                     <ImgBtnLayout name="Panier" icon="cart imgBtn-header"></ImgBtnLayout>
@@ -16,10 +17,10 @@ var HeaderLayout = React.createClass({
                     <SearchBarLayout ></SearchBarLayout>
                 </FlexContainerLayout>
                 {this.props.children}
-            </header>
+            </BoxLayout>
         );
     }
-});
+};
 
 module.exports = HeaderLayout;
 

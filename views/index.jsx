@@ -2,9 +2,9 @@ var React = require('react'),
     DefaultLayout = require('./layouts/DefaultLayout'),
     HeaderLayout = require('./layouts/header/HeaderLayout');
 
-var IndexPage = React.createClass({
+class IndexPage extends React.Component {
 
-    render: function() {
+    render() {
 
         return (
             <DefaultLayout title={this.props.title}>
@@ -16,6 +16,6 @@ var IndexPage = React.createClass({
             </DefaultLayout>
         );
     }
-});
+};
 
 module.exports = IndexPage;

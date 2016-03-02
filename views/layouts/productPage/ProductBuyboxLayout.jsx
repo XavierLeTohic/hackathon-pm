@@ -1,7 +1,7 @@
 var React = require('react'),
     BoxLayout = require('./layouts/shared/BoxLayout');
 	
-class ProductDetailsLayout extends React.Component {
+class ProductBuyboxLayout extends React.Component {
 
     render() {
 
@@ -13,4 +13,4 @@ class ProductDetailsLayout extends React.Component {
     }
 };
 
-module.exports = ProductDetailsLayout;
+module.exports = ProductBuyboxLayout;

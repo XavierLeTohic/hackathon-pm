@@ -1,9 +1,9 @@
 var React = require('react');
 
-var SearchBarLayout = React.createClass({
+class SearchBarLayout extends React.Component {
 
-    render: function() {
-    		var searchBarClasses = this.props.name ? "searchBar " + this.props.name : "searchBar "
+    render() {
+    		let searchBarClasses = this.props.name ? "searchBar " + this.props.name : "searchBar ";
         return (
           <form className={searchBarClasses}>
           	<input className="searchBar_input" type="text" name="keyword" placeholder="Rechercher un produit" />
@@ -15,6 +15,6 @@ var SearchBarLayout = React.createClass({
           </form>
         );
     }
-});
+};
 
 module.exports = SearchBarLayout;

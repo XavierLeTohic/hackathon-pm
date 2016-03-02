@@ -1,9 +1,9 @@
 var React = require('react');
 
-var FlexContainerLayout = React.createClass({
+class FlexContainerLayout extends React.Component {
 
-    render: function() {
-        var ctnClass = this.props.nameClass ? "flexContainer "+ this.props.nameClass : "flexContainer";
+    render() {
+        let ctnClass = this.props.nameClass ? "flexContainer "+ this.props.nameClass : "flexContainer";
 
         return (
             <div className={ctnClass}>
@@ -11,6 +11,6 @@ var FlexContainerLayout = React.createClass({
             </div>
         );
     }
-});
+};
 
 module.exports = FlexContainerLayout;
