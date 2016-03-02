@@ -31,6 +31,7 @@ class ProductPage extends React.Component {
             </DefaultLayout>
         );
     }
+
 }
 
 module.exports = ProductPage;
