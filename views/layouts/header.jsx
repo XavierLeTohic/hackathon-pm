@@ -11,8 +11,8 @@ var HeaderLayout = React.createClass({
             <header className="box">
                 <FlexContainerLayout nameClass="headerFirstBar">
                     <h1><a href="#"><img src="medias/logo_pm.png" alt="Rakuten Group Priceminister" /></a></h1>
-                    <ImgBtnLayout name="Panier" icon="cart "></ImgBtnLayout>
-                    <ImgBtnLayout name="Connexion" icon="login"></ImgBtnLayout>
+                    <ImgBtnLayout name="Panier" icon="cart imgBtn-header"></ImgBtnLayout>
+                    <ImgBtnLayout name="Connexion" icon="login imgBtn-header"></ImgBtnLayout>
                     <SearchBarLayout ></SearchBarLayout>
                 </FlexContainerLayout>
                 {this.props.children}
