@@ -1,6 +1,6 @@
 var React = require('react'),
     DefaultLayout = require('./layouts/default'),
-    HeaderLayout = require('./layouts/header');
+    HeaderLayout = require('./header/layouts/header');
 
 var IndexPage = React.createClass({
 
