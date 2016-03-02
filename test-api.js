@@ -15,7 +15,7 @@ request({
   // HTTP Archive Request Object
   har: {
     url: url,
-    method: 'GET',
+    method: method,
     headers: [
       {
         name: 'content-type',
