@@ -4,10 +4,7 @@ var React = require('react'),
     ProductDetailsLayout = require('./layouts/productPage/ProductDetailsLayout'),
     AdvertListingLayout = require('./layouts/productPage/AdvertListingLayout'),
     ProductBuyBoxLayout = require('./layouts/productPage/ProductBuyBoxLayout'),
-    HeaderLayout = require('./layouts/header/HeaderLayout'),
-    Media = require('./layouts/shared/Media'),
-    Img = require('./layouts/shared/Img'),
-    TextBlock = require('./layouts/shared/TextBlock');
+    HeaderLayout = require('./layouts/header/HeaderLayout');
 
 class ProductPage extends React.Component {
 
@@ -23,13 +20,7 @@ class ProductPage extends React.Component {
                 <section id="prdPage" >
 
                     <ProductDetailsLayout>
-                      <Media>
-                        <Img src="medias/icons/piece.png"/>
-                        <TextBlock>
-                          <h1>Lazaretto - Ultra LP (180G)[180G]</h1>
-                          <h2>Vinyle</h2>
-                        </TextBlock>
-                      </Media>
+                      
                     </ProductDetailsLayout>
 
                     <FlexContainerLayout nameClass = "productPage-main">

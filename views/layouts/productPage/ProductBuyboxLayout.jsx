@@ -7,7 +7,7 @@ class ProductBuyboxLayout extends React.Component {
 
         return (
             <BoxLayout>
-                
+                {this.props.children}
             </BoxLayout>
         );
     }

@@ -7,7 +7,7 @@ class AdvertListingLayout extends React.Component {
 
         return (
             <BoxLayout>
-                
+                {this.props.children}
             </BoxLayout>
         );
     }
