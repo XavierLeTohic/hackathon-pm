@@ -36,7 +36,12 @@ gulp.task('serve', function () {
 
     gulp.watch(['./server.js', './controllers/**/*.js', 'routes/**/*.js'], function(file) {
 
-      server.notify.apply(server, [file]);
+      server.start.bind(server)();
+
+      setTimeout(function() {
+
+        server.notify.apply(server, [file]);
+      }, 500);
     });
 
     gulp.watch(['./views/**/*.jsx'], function(file) {
