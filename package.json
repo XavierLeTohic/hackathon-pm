@@ -28,6 +28,7 @@
     "gulp-stylus": "^2.3.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
+    "request": "^2.69.0",
     "run-sequence": "^1.1.5"
   }
 }

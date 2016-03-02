@@ -11,6 +11,6 @@ class ProductDetailsLayout extends React.Component {
             </BoxLayout>
         );
     }
-};
+}
 
 module.exports = ProductDetailsLayout;
