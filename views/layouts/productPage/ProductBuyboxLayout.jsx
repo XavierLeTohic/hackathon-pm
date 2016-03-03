@@ -28,6 +28,15 @@ class ProductBuyboxLayout extends React.Component {
       }
     }
 
+    getSellerComment() {
+        let buybox = (this.props.buybox.new !== 'undefined' ? this.props.buybox.new.adverts[0] : this.props.buybox.used.adverts[0]);
+
+        if(buybox.sellerComment) {
+            return (<SellerComment value={buybox.sellerComment} />)
+        }
+
+    }
+
     render() {
 
       let buybox = (this.props.buybox.new !== 'undefined' ? this.props.buybox.new.adverts[0] : this.props.buybox.used.adverts[0]);
@@ -51,8 +60,9 @@ class ProductBuyboxLayout extends React.Component {
                   <ButtonLayout href="#" className="btn btn-primary">Ajouter au panier
                   </ButtonLayout>
                 </FlexContainerLayout>
-                <SellerComment value={buybox.sellerComment}>
-                </SellerComment>
+
+                {this.getSellerComment()}
+
               </div>
             </FlexContainerLayout>
             <SellerInfos nameClass="productCard" seller={buybox.seller}>

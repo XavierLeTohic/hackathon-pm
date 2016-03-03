@@ -4,7 +4,7 @@ var React = require('react'),
 class ProductAdvertList extends React.Component {
 
   render() {
-
+    console.log(this.props.urlName);
     let adverts = this.props.adverts;
 
     return (
@@ -12,7 +12,7 @@ class ProductAdvertList extends React.Component {
         {adverts.map(function(advert) {
 
           return (
-            <ProductAdvertListItem key={advert.advertId} advert={advert}></ProductAdvertListItem>
+            <ProductAdvertListItem key={advert.advertId} advert={advert} ></ProductAdvertListItem>
           )
 
         }.bind(this))}
