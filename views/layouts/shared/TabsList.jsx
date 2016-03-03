@@ -8,7 +8,7 @@ class TabsList extends React.Component {
 					<ul className={this.props.nameClass}>
 						{this.props.tabsList.map(function(tab) {
 							 return (
-									 <Tab key={tab.key} type={tab.type} url={tab.url} name={tab.name} />
+									 <Tab key={tab.key} type={tab.type} url={tab.url} name={tab.name} params={tab.params}/>
 							 );
 						})}
 					</ul>

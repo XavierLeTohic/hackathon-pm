@@ -8,7 +8,7 @@ class Tab extends React.Component {
 
 		getTemplate() {
 
-			let nameClass = this.props.type ? this.props.type : ""
+			let nameClass = this.props.type ? this.props.type : "";
 			if (this.props.type === 'advert') {
 				return(
 					<li >
@@ -21,15 +21,37 @@ class Tab extends React.Component {
 						</Media>
 					</li>
 				)
-				
+
 			}
 
 			else if (this.props.type === 'btn') {
 				return(
 					<li ><ButtonLayout href={this.props.url} className={nameClass}>{this.props.name}</ButtonLayout></li>
 				)
-				
+
 			}
+
+      else if(this.props.type === 'reviews') {
+
+        console.log(this.props.params);
+
+        var reviews = this.props.params.reviews,
+            nbr = this.props.params.nbr;
+
+        if(nbr > 0) {
+
+          return(
+            <li ><a href={this.props.url} className={nameClass} >{nbr} avis</a></li>
+          )
+        }
+        else {
+
+          return(
+            <li ><a href={this.props.url} className={nameClass} >{this.props.name}</a></li>
+          )
+        }
+      }
+
 			return(
 				<li ><a href={this.props.url} className={nameClass} >{this.props.name}</a></li>
 			)
@@ -38,7 +60,7 @@ class Tab extends React.Component {
 		render() {
 				return (
 						this.getTemplate()
-					
+
 				);
 		}
 };

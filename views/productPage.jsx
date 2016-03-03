@@ -19,16 +19,16 @@ class ProductPage extends React.Component {
 
                 <section id="prdPage" >
 
-                    <ProductDetailsLayout>
-                      
+                    <ProductDetailsLayout product={this.props.product}>
+
                     </ProductDetailsLayout>
 
                     <FlexContainerLayout nameClass = "productPage-main">
                         <AdvertListingLayout>
-                        
+
                         </AdvertListingLayout>
                         <ProductBuyBoxLayout>
-                        
+
                         </ProductBuyBoxLayout>
                     </FlexContainerLayout>
 
@@ -39,5 +39,9 @@ class ProductPage extends React.Component {
     }
 
 }
+
+ProductPage.contextTypes = {
+  product: React.PropTypes.object
+};
 
 module.exports = ProductPage;
