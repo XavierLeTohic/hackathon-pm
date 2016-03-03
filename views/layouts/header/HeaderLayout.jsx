@@ -11,7 +11,7 @@ class HeaderLayout extends React.Component {
         return (
             <BoxLayout element="header">
                 <FlexContainerLayout nameClass="headerFirstBar">
-                    <h1><a href="#"><img src="../medias/logo_pm.png" alt="Rakuten Group Priceminister" /></a></h1>
+                    <h1><a href="/"><img src="../medias/logo_pm.png" alt="Rakuten Group Priceminister" /></a></h1>
                     <ImgBtnLayout name="Panier" icon="cart imgBtn-header"></ImgBtnLayout>
                     <ImgBtnLayout name="Connexion" icon="login imgBtn-header"></ImgBtnLayout>
                     <SearchBarLayout kw={this.props.kw}></SearchBarLayout>

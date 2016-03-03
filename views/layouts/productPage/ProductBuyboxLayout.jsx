@@ -13,7 +13,7 @@ class ProductBuyboxLayout extends React.Component {
 
     getBuyboxImage() {
 
-      let buybox = (this.props.buybox.new !== 'undefined' ? this.props.buybox.new.adverts[0] : this.props.buybox.used.adverts[0]);
+      let buybox = this.getAdvertBuyBox(this.props.buybox);
 
       if(buybox.imagesUrls.length > 0) {
 
@@ -28,18 +28,22 @@ class ProductBuyboxLayout extends React.Component {
       }
     }
 
-    getSellerComment() {
-        let buybox = (this.props.buybox.new !== 'undefined' ? this.props.buybox.new.adverts[0] : this.props.buybox.used.adverts[0]);
+    getAdvertBuyBox(buybox) {
+      return (typeof buybox.new !== 'undefined' ? buybox.new.adverts[0] : buybox.used.adverts[0]);
+    }
 
-        if(buybox.sellerComment) {
-            return (<SellerComment value={buybox.sellerComment} />)
-        }
+    getSellerComment() {
+      let buybox = this.getAdvertBuyBox(this.props.buybox);
+
+      if(buybox.sellerComment) {
+        return (<SellerComment value={buybox.sellerComment} />)
+      }
 
     }
 
     render() {
 
-      let buybox = (this.props.buybox.new !== 'undefined' ? this.props.buybox.new.adverts[0] : this.props.buybox.used.adverts[0]);
+      let buybox = this.getAdvertBuyBox(this.props.buybox);
       let shippingInfo = {
         shippingTypes: buybox.shippingTypes,
         availableShippingTypes: buybox.availableShippingTypes,

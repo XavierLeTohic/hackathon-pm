@@ -13,10 +13,12 @@ class ProductPage extends React.Component {
 
     render() {
 
+
       let tabsList = [
         { 'key': 1, 'name': 'Avis', 'url': '#modal-reviews' },
         { 'key': 2, 'name': 'Descriptif détaillé', 'url': '#modal-info' }
       ];
+
 
       return (
           <DefaultLayout title={this.props.title}>
