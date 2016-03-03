@@ -2,5 +2,31 @@
 	.pickerList
 		flex-grow 1
 		display flex
+
 		li 
 			margin-right $miniSpacer
+	.productListSearch
+		display flex
+		justify-content center
+		.imgProductCtn
+			square(100%)
+			min-width 200px
+			.imgProduct
+				border 2px solid $bodyBg
+				width 100%
+
+@media only screen and (min-width: $screen-xs) 
+	.searchBlock
+		.productListSearch
+			justify-content space-around
+			li
+				width 240px
+				margin 0 $miniSpacer $spacerBase 0
+			.imgProductCtn
+				square(100%)
+				
+@media only screen and (min-width: $screen-md) 
+	.searchBlock
+		.productListSearch
+			li 
+				width  300px

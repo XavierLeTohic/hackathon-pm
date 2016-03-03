@@ -34,8 +34,8 @@ class HeaderSearchLayout extends React.Component {
     return (
     	<FlexContainerLayout nameClass="header-search">
     		<ul className ="pickerList">
-    			<li><SelectLayout name="statePicker" defaultValue="Neuf et Occasions" options={statesArray}/></li>
-    			<li><SelectLayout name="filterPicker" defaultValue="Neuf et Occasions" options={filtersArray}/></li>
+    			<li><SelectLayout key="1" name="statePicker" defaultValue="Neuf et Occasions" options={statesArray}/></li>
+    			<li><SelectLayout key="2" name="filterPicker" defaultValue="Neuf et Occasions" options={filtersArray}/></li>
     		</ul>
     		<ImgBtnLayout name="Panier" icon="cart imgBtn-header"></ImgBtnLayout>
     		<ImgBtnLayout name="Connexion" icon="login imgBtn-header"></ImgBtnLayout>
