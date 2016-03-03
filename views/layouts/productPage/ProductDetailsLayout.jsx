@@ -24,20 +24,20 @@ class ProductDetailsLayout extends React.Component {
             tabsList = [
               { 'key': 1, 'name': 'Donner votre avis', 'url': '#', 'type': 'reviews', params: reviews },
               { 'key': 2, 'name': 'Descriptif détaillé', 'url': '#' },
-              { 'key': 3, 'name': 'Vendre', 'url': '#', 'type': 'btn' }
+              { 'key': 3, 'name': 'Vendre', 'url': '#', 'type': 'btn', className : 'btn btn-sell' }
             ];
 
         return (
-            <BoxLayout>
-              <Media>
-                <Img src={product.imagesUrls[0]}/>
+            <BoxLayout nameClass="prdDetails">
+              <Media nameClass="prdTitle">
+                <Img src={product.images[0].imagesUrls.entry[1].url} nameClass="imgProduct"/>
                 <TextBlock>
                   <h1>{product.headline}</h1>
                   <p>{product.caption}</p>
                 </TextBlock>
               </Media>
 
-              <TabsList reviews={reviews} tabsList={tabsList} className="inlineTabs">
+              <TabsList reviews={reviews} tabsList={tabsList} className="inlineTabs tabsPrdDetail">
 
               </TabsList>
 
