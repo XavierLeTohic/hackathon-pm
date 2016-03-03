@@ -27,7 +27,7 @@ class SearchPage extends React.Component {
     return filterValues.map(function(filterValue) {
       let url = this.getTargetUrl(key, filterValue.value);
       return (
-        <li>
+        <li key={filterValue.value}>
           <a href={url}>{filterValue.label} ({filterValue.productsCount})</a>
         </li>
       )
@@ -40,7 +40,7 @@ class SearchPage extends React.Component {
      
     return filters.map(function(filter) {
       return (
-        <ul>
+        <ul key={filter.name}>
           <li>
             <b>{filter.name}</b>
             <ul>{this.getSubFilters(filter.key, filter.filterValues)}</ul>

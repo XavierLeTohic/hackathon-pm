@@ -19,9 +19,9 @@ class SelectLayout extends React.Component {
 			let selectValue = this.state.selectValue;
 			var options = this.props.options.map(function(item) {
 				if (selectValue === item.label) {
-					return <option selected value = {item.label} > {item.label} < /option>;
+					return <option selected value = {item.label} key={item.label}> {item.label} < /option>;
 				} else {
-					return <option value = { item.label} > { item.label} < /option>;
+					return <option value = { item.label}  key={item.label}> { item.label} < /option>;
 				}
 
 			})
