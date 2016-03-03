@@ -1,21 +1,20 @@
 .prdDetails
   .tabsPrdDetail
-    border-top 1px solid $bodyBg
-    margin $miniSpacer -20px -20px
+    border 1px solid $bodyBg
+    margin $miniSpacer
     display flex
+    flex-direction column
     li
       justify-content center
       display flex
-      padding-right $miniSpacer
-      padding-left $miniSpacer
-      border-right 1px solid $bodyBg
+      padding $miniSpacer
+      border-bottom 1px solid $bodyBg
       a, div
         align-self center
       &:nth-child(3)
-        flex-grow 1
         display flex
-        justify-content flex-end
-        padding-right 0
+        justify-content center
+        border none
 
   .prdTitle
     flex-direction column
@@ -23,6 +22,20 @@
     square(200px)
 @media only screen and (min-width: $screen-xs)
   .prdDetails
+    .tabsPrdDetail
+      border-top 1px solid $bodyBg
+      margin $miniSpacer -20px -20px
+      flex-direction row
+      li
+        padding  0 $miniSpacer
+        border-right 1px solid $bodyBg
+
+        &:nth-child(3)
+          flex-grow 1
+          justify-content flex-end
+          padding-right 0
+          a
+            border-left 1px solid $bodyBg
     .prdTitle
       flex-direction row
     .imgProduct
