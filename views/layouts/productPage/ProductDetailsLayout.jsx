@@ -28,7 +28,7 @@ class ProductDetailsLayout extends React.Component {
             ];
 
         return (
-            <BoxLayout>
+            <BoxLayout nameClass="prdDetails">
               <Media>
                 <Img src={product.imagesUrls[0]}/>
                 <TextBlock>
