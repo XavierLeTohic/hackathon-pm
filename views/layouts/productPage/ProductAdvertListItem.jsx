@@ -1,5 +1,8 @@
 var React = require('react'),
     Img = require('../shared/Img'),
+    Media = require('../shared/Media'),
+    Img = require('../shared/Img'),
+    TextBlock = require('../shared/TextBlock'),
     Price = require('../shared/Price');
 
 class ProductAdvertListItem extends React.Component {
@@ -12,11 +15,15 @@ class ProductAdvertListItem extends React.Component {
     return (
       <li>
         <a href="#">
-          <Img src="../medias/icons/piece.png"/>
-          <Price value={advert.salePrice} quality={advert.quality} />
-          <p>
-            <span>{ (advert.shippingAmount > 0 ? advert.shippingAmount + ' €' : 'Livraison gratuite' ) }</span>
-          </p>
+          <Media nameClass="advertItem">
+             <Img src="../medias/icons/piece.png"/>
+            <TextBlock>
+              <Price value={advert.salePrice} quality={advert.quality} />
+              <p>
+                <span>{ (advert.shippingAmount > 0 ? advert.shippingAmount + ' €' : 'Livraison gratuite' ) }</span>
+              </p>
+            </TextBlock>
+          </Media>
         </a>
       </li>
     );

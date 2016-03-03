@@ -4,7 +4,7 @@ class TextBlock extends React.Component {
 
   render () {
     return (
-      <div {...this.props}></div>
+      <div className="media-body" {...this.props}></div>
     )
   }
 }
