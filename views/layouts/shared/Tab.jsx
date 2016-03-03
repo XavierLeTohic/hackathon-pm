@@ -27,7 +27,7 @@ class Tab extends React.Component {
 
 			else if (this.props.type === 'btn') {
 				return(
-					<li ><ButtonLayout href={this.props.url} className={nameClass}>{this.props.name}</ButtonLayout></li>
+					<li ><ButtonLayout href={this.props.url} className={this.props.className}>{this.props.name}</ButtonLayout></li>
 				)
 
 			}

@@ -1,43 +1,43 @@
 .buybox
-	.productCard
-		margin-bottom $spacerBase
-	.infosProduct
-		padding $spacerBase
-		a.btn.btn-primary
-			align-items flex-end
-			align-self flex-start
-	.imgProduct
-		square(100%)
-		align-self center
-	.productCard
-		flex-wrap wrap
-	.seller
-		flex-grow 1
-		
-	.priceBlock
-		display flex
-		flex 1
-		flex-direction column
-		.price
-			font-weight 900
-			font-size 24px
-			color $colorPrimary
-			margin-bottom 0
+  .productCard
+    margin-bottom $spacerBase
+  .infosProduct
+    padding $spacerBase
+    a.btn.btn-primary
+      align-items flex-end
+      align-self flex-start
+  .imgProduct
+    square(100%)
+    align-self center
+  .productCard
+    flex-wrap wrap
+  .seller
+    flex-grow 1
 
-		.state
-			color $colorPrimary
-	.sellerComment p.label		
-		color lighten($colorText, 50%)
-		
-		
+  .priceBlock
+    display flex
+    flex 1
+    flex-direction column
+    .price
+      font-weight 900
+      font-size 24px
+      color $colorPrimary
+      margin-bottom 0
+
+    .state
+      color $colorPrimary
+  .sellerComment p.label
+    color lighten($colorText, 50%)
 
 
-@media only screen and (min-width: $screen-md) 
-	.buybox
-		.infosProduct
-			padding $miniSpacer
-		.imgProduct
-			width 235px
-		.productCard
-			flex-wrap nowrap
-		
+
+
+@media only screen and (min-width: $screen-md)
+  .buybox
+    .infosProduct
+      padding $miniSpacer
+    .imgProduct
+      width 235px
+    .productCard
+      flex-wrap nowrap
+

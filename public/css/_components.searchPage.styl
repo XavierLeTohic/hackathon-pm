@@ -1,82 +1,81 @@
 .searchBlock
-	.pickerList
-		flex-grow 1
-		display flex
+  .pickerList
+    flex-grow 1
+    display flex
 
-		li 
-			margin-right $miniSpacer
-	.productListSearch
-		display flex
-		justify-content center
-		li			
-			padding $spacerBase*2 0
-			border-bottom 1px solid $colorSeparator
-			
-			.productTitle
-				font-size 16px
-				margin-top ($miniSpacer / 2)			
-				color $colorText
-				 
-			.rating	
-				margin ($miniSpacer / 2) 0 ($miniSpacer / 2) 0		
-			.avis
-				margin ($miniSpacer / 2) 0 ($miniSpacer / 2) 0
-							
-				
-			.topic
-				color lighten($colorText, 50%)
-				font-size 13px
-				
-			p 
-				margin 0
-							
-				
-			.bestPrice
-				color $colorPrimary
-				font-weight 700
-				margin $miniSpacer 0 (($miniSpacer/2) + 2px) 0
-				font-size 18px
-			
-			.marketPlace
-				color $colorText
-				font-size 13px
-				.offers
-					color lighten($colorText, 50%)
-				.price
-					color $colorPrimary
-				
-			
-			.suggest
-				border-radius $radius
-				background-color $bodyBg
-				text-transform uppercase
-				font-size 12px
-				padding 3px 5px
-				color #a9adaf
-				font-weight 700
-				margin-left $miniSpacer
-				
-			.imgProductCtn
-				square(100%)
-				min-width 200px
-				.imgProduct				
-					width 100%
+    li
+      margin-right $miniSpacer
+  .productListSearch
+    display flex
+    justify-content center
+    li
+      padding $spacerBase*2 0
+      border-bottom 1px solid $colorSeparator
 
-@media only screen and (min-width: $screen-xs) 
-	.searchBlock
-		.productListSearch
-			justify-content space-around
-			li
-				width 240px
-				
-				border-bottom 0px
-				
-			.imgProductCtn
-				square(100%)
-				
-@media only screen and (min-width: $screen-md) 
-	.searchBlock
-		.productListSearch
-			li 
-				width  250px
-				
+      .productTitle
+        font-size 16px
+        margin-top ($miniSpacer / 2)
+      a
+        color $colorText
+      .avis
+        margin ($miniSpacer / 2) 0 ($miniSpacer / 2) 0
+        color $colorLink
+        display flex
+
+      .topic
+        color lighten($colorText, 50%)
+        font-size 13px
+
+      p
+        margin 0
+
+
+      .bestPrice
+        color $colorPrimary
+        font-weight 700
+        margin $miniSpacer 0 (($miniSpacer/2) + 2px) 0
+        font-size 18px
+
+      .marketPlace
+        font-size 13px
+        .offers
+          color lighten($colorText, 50%)
+        .price
+          color $colorPrimary
+
+
+      .suggest
+        border-radius $radius
+        background-color $bodyBg
+        text-transform uppercase
+        font-size 12px
+        padding 3px 5px
+        color #a9adaf
+        font-weight 700
+        margin-left $miniSpacer
+
+      .imgProductCtn
+        square(100%)
+        min-width 200px
+        .imgProduct
+          width 100%
+
+@media only screen and (min-width: $screen-xs)
+  .searchBlock
+    .productListSearch
+      justify-content space-around
+      li
+        width 240px
+
+        border-bottom 0px
+
+      .imgProductCtn
+        square(100%)
+
+@media only screen and (min-width: $screen-md)
+  .searchBlock
+    .productListSearch
+      li
+        width  250px
+
+
