@@ -1,5 +1,5 @@
-var request = require('request');
-    headersDatas = [{name: 'content-type',value: 'application/json'},{name: 'User-Agent',value: 'HACKATHON Q1.2016'}];
+var request = require('request'),
+    headersDatas = [{name: 'Accept',value: 'application/json'},{name: 'User-Agent',value: 'HACKATHON Q1.2016'}];
 /**
  * Search action
  * @param req
