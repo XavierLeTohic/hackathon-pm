@@ -11,7 +11,10 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.engine('jsx', jsxEngine.createEngine());
 
-app.use(require('connect-livereload')());
+if(process.env.NODE_ENV === 'development') {
+  app.use(require('connect-livereload')());
+}
+
 app.use(express.static('./public/build'));
 app.use(express.static('./public/libs'));
 

@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     runSequence = require('run-sequence').use(gulp),
     gls = require('gulp-live-server'),
+    minify = require('gulp-minify'),
     stylus = require('gulp-stylus'),
     babel = require("gulp-babel"),
     concat = require("gulp-concat"),
@@ -79,6 +80,15 @@ gulp.task('serve', function () {
 
 });
 
+gulp.task('deploy', function() {
+
+  runSequence('env:prod', 'build:prod', function() {
+    var server = gls.new('server.js');
+    server.start();
+  });
+
+});
+
 gulp.task('medias', function(done) {
 
   gulp.src('./public/medias/**/*')
@@ -94,6 +104,16 @@ gulp.task('styl', function(done) {
       .on('end', done);
 });
 
+gulp.task('styl:prod', function(done) {
+
+  gulp.src('./public/css/styles.styl')
+      .pipe(stylus({
+        compress: true
+      }))
+      .pipe(gulp.dest('./public/build/css'))
+      .on('end', done);
+});
+
 gulp.task('babel', function (done) {
 
   gulp.src('./public/js/**/*.js')
@@ -102,9 +122,23 @@ gulp.task('babel', function (done) {
       .on('end', done);
 });
 
+gulp.task('babel:prod', function (done) {
+
+  gulp.src('./public/js/**/*.js')
+      .pipe(babel())
+      .pipe(minify())
+      .pipe(gulp.dest('./public/build/js'))
+      .on('end', done);
+});
+
 gulp.task('build', function(done) {
 
   runSequence('build:clean', 'styl', 'babel', 'medias', done);
+});
+
+gulp.task('build:prod', function(done) {
+
+  runSequence('build:clean', 'styl:prod', 'babel:prod', 'medias', done);
 });
 
 gulp.task('build:clean', function(done) {
