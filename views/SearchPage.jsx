@@ -19,7 +19,8 @@ class SearchPage extends React.Component {
 
         <ul>
           {products.map(function(product) {
-            return <li key={product.id}>{product.headline}</li>;
+            let url = '/product/' + product.id;
+            return <li key={product.id}><a href={url}>{product.headline}</a></li>;
           })}
         </ul>
 
