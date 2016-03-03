@@ -1,5 +1,6 @@
 var React = require('react'),
 		TabsList = require('../shared/TabsList'),
+		FlexContainerLayout = require('../shared/FlexContainerLayout'),
     BoxLayout = require('../shared/BoxLayout');
 	
 class AdvertListingLayout extends React.Component {
@@ -13,6 +14,10 @@ class AdvertListingLayout extends React.Component {
 
         return (
             <BoxLayout nameClass="listing">
+            		<FlexContainerLayout type="header" nameClass="listing-header">
+            			<p className="label"> 3 annonces</p>
+            			<a href="#">Filter</a>
+            		</FlexContainerLayout>
             		<TabsList tabsList={tabsList} nameClass="blockTabs">
 
             		</TabsList>
