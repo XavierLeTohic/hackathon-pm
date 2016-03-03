@@ -12,7 +12,6 @@ class IndexPage extends React.Component {
         return (
             <DefaultLayout title={this.props.title}>
                 <HeaderLayout>
-                    <div>Hello {this.props.name} <br />This header is generated on server-side with React engine of Express</div>
                 </HeaderLayout>
 
                 <section id="IndexPage" ></section>

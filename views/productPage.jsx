@@ -14,7 +14,6 @@ class ProductPage extends React.Component {
             <DefaultLayout title={this.props.title}>
 
                 <HeaderLayout>
-                    <div>Hello {this.props.name} <br />This header is generated on server-side with React engine of Express</div>
                 </HeaderLayout>
 
                 <section id="prdPage" >
@@ -24,7 +23,7 @@ class ProductPage extends React.Component {
                     </ProductDetailsLayout>
 
                     <FlexContainerLayout nameClass = "productPage-main">
-                        <AdvertListingLayout>
+                        <AdvertListingLayout product={this.props.product}>
 
                         </AdvertListingLayout>
                         <ProductBuyBoxLayout buybox={this.props.product.bestOffers} productImage={this.props.product.imagesUrls[0]}>

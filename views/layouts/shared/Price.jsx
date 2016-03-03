@@ -10,16 +10,28 @@ class Price extends React.Component {
         <p className="state">Neuf</p>
       )
     }
+    else if(this.props.quality === 'LIKE_NEW') {
+
+      return (
+        <p className="state">Comme neuf</p>
+      )
+    }
+    else if(this.props.quality === 'VERY_GOOD') {
+
+      return (
+        <p className="state">Très bon état</p>
+      )
+    }
     else if(this.props.quality === 'GOOD') {
 
       return (
-        <p className="state">Comme Neuf</p>
+        <p className="state">Bon état</p>
       )
     }
     else if(this.props.quality === 'ACCEPTABLE') {
 
       return (
-        <p className="state">Occasion</p>
+        <p className="state">Correct</p>
       )
     }
   }
@@ -33,6 +45,6 @@ class Price extends React.Component {
       </div>
     )
   }
-};
+}
 
 module.exports = Price;
