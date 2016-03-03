@@ -1,4 +1,5 @@
 var indexCtrl = require('../controllers/indexCtrl'),
+    productCtrl = require('../controllers/productCtrl'),
     searchCtrl = require('../controllers/searchCtrl');
 
 /**
@@ -8,7 +9,7 @@ var indexCtrl = require('../controllers/indexCtrl'),
 module.exports = function(app) {
 
     app.get('/', indexCtrl.indexAction);
-    app.get('/productPage', indexCtrl.ProductPage);
+    app.get('/productPage', productCtrl.ProductPage);
 
     app.get('/search', searchCtrl.SearchAction);
 
