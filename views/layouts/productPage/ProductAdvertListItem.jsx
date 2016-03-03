@@ -16,11 +16,11 @@ class ProductAdvertListItem extends React.Component {
       <li>
         <a href="#">
           <Media nameClass="advertItem">
-             <Img src="../medias/icons/piece.png"/>
+             <Img src="../medias/icons/avatar.png"/>
             <TextBlock>
               <Price value={advert.salePrice} quality={advert.quality} />
               <p>
-                <span>{ (advert.shippingAmount > 0 ? advert.shippingAmount + ' €' : 'Livraison gratuite' ) }</span>
+                <span className="shippingAmount">{ (advert.shippingAmount > 0 ? advert.shippingAmount + ' € de frais de port' : 'Livraison gratuite' ) }</span>
               </p>
             </TextBlock>
           </Media>

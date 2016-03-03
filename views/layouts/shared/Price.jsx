@@ -40,7 +40,7 @@ class Price extends React.Component {
 
     return (
       <div className="priceBlock">
-        <p className="price">{this.props.value} €</p>
+        <p className="price">{this.props.value}&nbsp;€&nbsp;-&nbsp;</p>
         {this.getQuality()}
       </div>
     )
