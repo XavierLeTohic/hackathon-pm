@@ -4,6 +4,7 @@ var React = require('react'),
     Img = require('./layouts/shared/Img'),
     HeaderSearchLayout = require('./layouts/SearchPage/HeaderSearchLayout'),
     FlexContainerLayout = require('./layouts/shared/FlexContainerLayout'),
+    Reviews = require('./layouts/shared/Reviews'),
     HeaderLayout = require('./layouts/header/HeaderLayout');
 
 class SearchPage extends React.Component {
@@ -107,7 +108,8 @@ class SearchPage extends React.Component {
 
                           </div></a>
                           <a href={url}><h1 className="productTitle">{product.headline}</h1></a>
-                          <a href="#" className="avis">{product.nbReviews} Avis</a>
+                          <Reviews nbReviews={product.nbReviews} reviewsAverageNote={product.reviewsAverageNote}/>
+                          
                           <a href={url}>
                             <p className="topic">{product.topic}</p>
                             <p className="bestPrice">{product.bestPrice} €<span className="suggest">Offre suggérées</span></p>

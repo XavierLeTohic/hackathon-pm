@@ -1,6 +1,7 @@
 var React = require('react'),
 		Media = require('./Media'),
 		TextBlock = require('./TextBlock'),
+		Reviews = require('./Reviews'),
 		ButtonLayout = require('./ButtonLayout'),
 		Img = require('./Img');
 
@@ -27,6 +28,13 @@ class Tab extends React.Component {
 			else if (this.props.type === 'btn') {
 				return(
 					<li ><ButtonLayout href={this.props.url} className={nameClass}>{this.props.name}</ButtonLayout></li>
+				)
+
+			}
+
+			else if (this.props.type === 'reviews') {
+				return(
+					<li ><Reviews nbReviews={this.props.nbReviews} reviewsAverageNote={this.props.reviewsAverageNote}/></li>
 				)
 
 			}

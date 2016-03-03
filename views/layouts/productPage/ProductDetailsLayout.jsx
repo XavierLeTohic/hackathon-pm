@@ -20,7 +20,7 @@ class ProductDetailsLayout extends React.Component {
               nbr: product.nbReviews
             },
             tabsList = [
-              { 'key': 1, 'name': 'Donner votre avis', 'url': '#', 'type': 'reviews', params: reviews },
+              { 'key': 1, 'name': 'Donner votre avis', 'url': '#', 'type': 'reviews','nbReviews': product.nbReviews,'reviewsAverageNote': product.reviewsAverageNote, params: reviews },
               { 'key': 2, 'name': 'Descriptif détaillé', 'url': '#' },
               { 'key': 3, 'name': 'Vendre', 'url': '#', 'type': 'btn' }
             ];
