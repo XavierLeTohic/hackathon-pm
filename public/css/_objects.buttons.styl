@@ -1,13 +1,19 @@
+a.btn
+	border-width 1px
+	padding $miniSpacer
+	border-radius $radius
+	font-weight 700
+	
+
 .imgBtn 
 	square(50px)
 	position relative
 	.icon
 		&:before
-			content ''
-			background-image url('../medias/icons/misc_24.png')
-			background-repeat no-repeat
+			content ''			
+			background-repeat no-repeat			
 			display inline-block
-			square(24px)
+			square(30px)
 			position absolute
 			top 50%
 			left 50%
@@ -24,5 +30,5 @@
 	.imgBtn 
 		.icon
 			&:before
-				background-image url('../medias/icons/misc_50.png')
-				square(50px)
+				//background-image url('../medias/icons/misc_50.png')
+				square(30px)

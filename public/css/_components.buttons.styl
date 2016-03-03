@@ -1,13 +1,22 @@
+.btn-primary
+	background-color $colorPrimary
+	color $white
+	&:hover
+		color $white
+		background-color lighten($colorPrimary, 30%)
+
 .imgBtn-header
 	&.login
 		.icon
 			&:before
-				background-position 0 -929px
+				background-position 0 0
+				background-image url('../medias/icons/user.svg')
 			
 	&.cart
 		.icon
 			&:before
-				background-position 0 -869px
+				background-position 0 0
+				background-image url('../medias/icons/cart.svg')
 	
 
 @media only screen and (min-width: $screen-md) 
@@ -20,4 +29,4 @@
 		&.cart
 			.icon
 				&:before
-					background-position -131px 0px	
+					background-position 0 0px	

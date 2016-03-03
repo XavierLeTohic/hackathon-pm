@@ -7,19 +7,19 @@ class Price extends React.Component {
     if(this.props.quality === 'NEW') {
 
       return(
-        <p>Neuf</p>
+        <p className="state">Neuf</p>
       )
     }
     else if(this.props.quality === 'GOOD') {
 
       return (
-        <p>Comme Neuf</p>
+        <p className="state">Comme Neuf</p>
       )
     }
     else if(this.props.quality === 'ACCEPTABLE') {
 
       return (
-        <p>Occasion</p>
+        <p className="state">Occasion</p>
       )
     }
   }

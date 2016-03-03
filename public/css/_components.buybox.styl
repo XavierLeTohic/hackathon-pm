@@ -1,4 +1,9 @@
 .buybox
+	.infosProduct
+		padding $spacerBase
+		a.btn.btn-primary
+			align-items flex-end
+			align-self flex-start
 	.imgProduct
 		square(100%)
 	.productCard
@@ -6,13 +11,36 @@
 	.seller
 		flex-grow 1
 		
+	.priceBlock
+		display flex
+		flex 1
+		flex-direction column
+		.price
+			font-weight 900
+			font-size 24px
+			color $colorPrimary
+			
+
+			
+			
+			
+		.state
+			color $colorPrimary
+			
+		
+	.sellerComment p.label		
+		color lighten($colorText, 50%)
+		
+		
 
 
 @media only screen and (min-width: $screen-md) 
 
 	.buybox
+		.infosProduct
+			padding $miniSpacer
 		.imgProduct
-			square(50%)
+			width 235px
 		.productCard
 			flex-wrap nowrap
 		
