@@ -1,6 +1,22 @@
 .prdDetails
   .tabsPrdDetail
+    border-top 1px solid $bodyBg
+    margin $miniSpacer -20px -20px
     display flex
+    li
+      justify-content center
+      display flex
+      padding-right $miniSpacer
+      padding-left $miniSpacer
+      border-right 1px solid $bodyBg
+      a, div
+        align-self center
+      &:nth-child(3)
+        flex-grow 1
+        display flex
+        justify-content flex-end
+        padding-right 0
+
   .prdTitle
     flex-direction column
   .imgProduct
