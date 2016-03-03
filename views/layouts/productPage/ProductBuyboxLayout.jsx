@@ -16,7 +16,7 @@ class ProductBuyboxLayout extends React.Component {
         return (
             <BoxLayout nameClass="buybox">
             		<FlexContainerLayout nameClass="productCard">
-            			<Img src="medias/iphone.jpg" nameClass="imgProduct"></Img>
+            			<Img src="../medias/iphone.jpg" nameClass="imgProduct"></Img>
             			<div className="infosProduct">
             				<FlexContainerLayout >
             					<Price>

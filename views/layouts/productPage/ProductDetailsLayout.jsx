@@ -21,7 +21,7 @@ class ProductDetailsLayout extends React.Component {
         return (
             <BoxLayout>
               <Media>
-                <Img src="medias/icons/piece.png"/>
+                <Img src="../medias/icons/piece.png"/>
                 <TextBlock>
                   <h1>Lazaretto - Ultra LP (180G)[180G]</h1>
                   <p>Vinyle</p>

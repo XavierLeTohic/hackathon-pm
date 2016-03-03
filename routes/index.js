@@ -9,7 +9,7 @@ var indexCtrl = require('../controllers/indexCtrl'),
 module.exports = function(app) {
 
     app.get('/', indexCtrl.indexAction);
-    app.get('/productPage', productCtrl.ProductPage);
+    app.get('/product/:id', productCtrl.ProductPage);
 
     app.get('/search', searchCtrl.SearchAction);
 

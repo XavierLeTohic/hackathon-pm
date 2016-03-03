@@ -18,7 +18,7 @@ class IndexPage extends React.Component {
                 <section id="IndexPage" ></section>
 
                 <Media>
-                  <Img src="medias/icons/piece.png" type="link" href="#"/>
+                  <Img src="../medias/icons/piece.png" type="link" href="#"/>
                   <TextBlock>
                     <h4>
                       test
@@ -27,7 +27,7 @@ class IndexPage extends React.Component {
                 </Media>
 
                 <Media>
-                  <Img src="medias/icons/piece.png"/>
+                  <Img src="../medias/icons/piece.png"/>
                   <TextBlock>
                     <h4>
                       test

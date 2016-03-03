@@ -13,7 +13,7 @@ class Tab extends React.Component {
 				return(
 					<li >
 						<Media>
-						  <Img src="medias/icons/piece.png"/>
+						  <Img src="../medias/icons/piece.png"/>
 						  <TextBlock>
 						    <p>12 € - Comme neuf</p>
 						    <p className="infos">Livraison gratuite</p>
