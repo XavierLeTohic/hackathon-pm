@@ -14,7 +14,7 @@ class Reviews extends React.Component {
           <span className="stars" style={ starsStyle }></span>
           <span property="ratingValue">{this.props.reviewsAverageNote}</span>
         </span>
-        <span><a href="#" className="avis">{this.props.nbReviews} Avis</a></span>
+        <span><a href="#" className="avis" data-modal={this.props.dataModal}>{this.props.nbReviews > 0 ? this.props.nbReviews + ' avis' : 'Donnez votre avis'}</a></span>
       </div>
     )
   }

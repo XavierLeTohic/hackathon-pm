@@ -4,37 +4,53 @@ var React = require('react'),
     ProductDetailsLayout = require('./layouts/productPage/ProductDetailsLayout'),
     AdvertListingLayout = require('./layouts/productPage/AdvertListingLayout'),
     ProductBuyBoxLayout = require('./layouts/productPage/ProductBuyBoxLayout'),
-    HeaderLayout = require('./layouts/header/HeaderLayout');
+    AdvertReviewsList = require('./layouts/productPage/AdvertReviewsList'),
+    HeaderLayout = require('./layouts/header/HeaderLayout'),
+    ModalLayout = require('./layouts/Modal/ModalLayout'),
+    TabsList = require('./layouts/shared/TabsList');
 
 class ProductPage extends React.Component {
 
     render() {
 
-        return (
-            <DefaultLayout title={this.props.title}>
+      let tabsList = [
+        { 'key': 1, 'name': 'Avis', 'url': '#modal-reviews' },
+        { 'key': 2, 'name': 'Descriptif détaillé', 'url': '#modal-info' }
+      ];
 
-                <HeaderLayout>
-                </HeaderLayout>
+      return (
+          <DefaultLayout title={this.props.title}>
 
-                <section id="prdPage" >
+              <HeaderLayout>
+              </HeaderLayout>
 
-                    <ProductDetailsLayout product={this.props.product}>
+              <section id="prdPage" >
 
-                    </ProductDetailsLayout>
+                  <ProductDetailsLayout product={this.props.product}>
 
-                    <FlexContainerLayout nameClass = "productPage-main">
-                        <AdvertListingLayout product={this.props.product}>
+                  </ProductDetailsLayout>
 
-                        </AdvertListingLayout>
-                        <ProductBuyBoxLayout buybox={this.props.product.bestOffers} productImage={this.props.product.imagesUrls[0]}>
+                  <FlexContainerLayout nameClass = "productPage-main">
+                      <AdvertListingLayout product={this.props.product}>
 
-                        </ProductBuyBoxLayout>
-                    </FlexContainerLayout>
+                      </AdvertListingLayout>
+                      <ProductBuyBoxLayout buybox={this.props.product.bestOffers} productImage={this.props.product.imagesUrls[0]}>
 
+                      </ProductBuyBoxLayout>
+                  </FlexContainerLayout>
 
-                </section>
-            </DefaultLayout>
-        );
+                <ModalLayout id="prdPageModal">
+                  <TabsList tabsList={tabsList} className="inlineTabs">
+
+                  </TabsList>
+                  <AdvertReviewsList reviews={this.props.product.reviews}>
+
+                  </AdvertReviewsList>
+                </ModalLayout>
+
+              </section>
+          </DefaultLayout>
+      );
     }
 
 }

@@ -34,32 +34,13 @@ class Tab extends React.Component {
 
 			else if (this.props.type === 'reviews') {
 				return(
-					<li ><Reviews nbReviews={this.props.nbReviews} reviewsAverageNote={this.props.reviewsAverageNote}/></li>
+					<li ><Reviews nbReviews={this.props.params.nbr} reviewsAverageNote={this.props.params.reviewsAverageNote} dataModal={this.props.params.modalID}/></li>
 				)
 
 			}
 
-      else if(this.props.type === 'reviews') {
-
-        var reviews = this.props.params.reviews,
-            nbr = this.props.params.nbr;
-
-        if(nbr > 0) {
-
-          return(
-            <li ><a href={this.props.url} className={nameClass} >{nbr} avis</a></li>
-          )
-        }
-        else {
-
-          return(
-            <li ><a href={this.props.url} className={nameClass} >{this.props.name}</a></li>
-          )
-        }
-      }
-
 			return(
-				<li ><a href={this.props.url} className={nameClass} >{this.props.name}</a></li>
+				<li ><a href={this.props.url} className={nameClass}>{this.props.name}</a></li>
 			)
 		}
 

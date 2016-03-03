@@ -13,11 +13,11 @@ class DefaultLayout extends React.Component {
                     <script src="../react/react-dom.js"></script>
                 </head>
                 <body>
-                    <div className="siteBody"> 
+                    <div className="siteBody">
                         {this.props.children}
-                    </div> 
+                    </div>
                     <script type="text/javascript" src="../js/index.js"></script>
-                    <script src="//localhost:35729/livereload.js"></script>
+                    <script type="text/javascript" src="../js/ProductPageClient.js"></script>
                 </body>
             </html>
         );
