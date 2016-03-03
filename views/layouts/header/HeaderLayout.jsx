@@ -14,7 +14,7 @@ class HeaderLayout extends React.Component {
                     <h1><a href="#"><img src="medias/logo_pm.png" alt="Rakuten Group Priceminister" /></a></h1>
                     <ImgBtnLayout name="Panier" icon="cart imgBtn-header"></ImgBtnLayout>
                     <ImgBtnLayout name="Connexion" icon="login imgBtn-header"></ImgBtnLayout>
-                    <SearchBarLayout ></SearchBarLayout>
+                    <SearchBarLayout kw={this.props.kw}></SearchBarLayout>
                 </FlexContainerLayout>
                 {this.props.children}
             </BoxLayout>

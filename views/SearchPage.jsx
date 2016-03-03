@@ -11,7 +11,7 @@ class SearchPage extends React.Component {
     return (
       <DefaultLayout title={this.props.title}>
 
-        <HeaderLayout>
+        <HeaderLayout kw={this.props.kw}>
           <div>Hello {this.props.name} <br />This header is generated on server-side with React engine of Express</div>
         </HeaderLayout>
 
@@ -28,5 +28,10 @@ class SearchPage extends React.Component {
     )
   }
 }
+
+SearchPage.contextTypes = {
+  kw: React.PropTypes.string
+};
+
 
 module.exports = SearchPage;

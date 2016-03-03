@@ -15,8 +15,10 @@ exports.SearchAction = function (req, res) {
 		        if(prop === 'kw'
 		        || prop === 'category'
 		        || prop.startsWith('f')) {
-		          query += '&' + prop + "=" +result[prop];
-		        }	
+
+              if(typeof result[prop] !== 'undefined' && result[prop] !== '')
+		            query += '&' + prop + "=" +result[prop];
+		        }
 		    }
 		}
 
@@ -26,11 +28,11 @@ exports.SearchAction = function (req, res) {
 		}
 
     var url = 'http://ws.priceminister.com/rest/navigation/v1/list?pageNumber=1&advertType=ALL&channel=hackathon&loadProducts=true&withoutStock=true' + query;
-		
+
 		// TODO : add hash user session
 		var timeKey = '>> WS search for "' + query + '"';
     console.time(timeKey);
-	  
+
 		request({
 		  // will be ignored
 		  method: 'GET',
@@ -42,10 +44,10 @@ exports.SearchAction = function (req, res) {
 		    method: 'GET',
 		    headers: headersDatas
 		  }
-		}, 
+		},
 		function(error, response, body) {
       console.timeEnd(timeKey);
-		    
+
       if(error) {
 		    console.error(error);
         response.writeHead(404, "Resource Not Found Arrrrrrggggg !", { "Content-Type": "text/html" });
