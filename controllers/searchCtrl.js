@@ -7,27 +7,39 @@ var request = require('request');
  */
 exports.SearchAction = function (req, res) {
 
-		var query,
+		var query = '',
 		    result = req.query;
 
-    for (var prop in result) {
-		    if (result.hasOwnProperty(prop)) {
-		        if(prop === 'kw'
-		        || prop === 'category'
-		        || prop.startsWith('f')) {
+  console.log(result);
 
-              if(typeof result[prop] !== 'undefined' && result[prop] !== '')
-		            query += '&' + prop + "=" +result[prop];
+    for (var prop in result) {
+
+		    if (result.hasOwnProperty(prop)) {
+
+		        if(prop === 'kw'
+              || prop === 'category'
+              || prop === 'pageNumber'
+              || prop.startsWith('f')) {
+
+                if(typeof result[prop] !== 'undefined' && result[prop] !== '') {
+
+                  query += '&' + prop + "=" +result[prop];
+                }
 		        }
 		    }
 		}
 
-		if (typeof(query) === 'undefined') {
+		if (query === '') {
 			res.status(500).send("<html><html><head><title>500</title></head><body>What ?????? <p>500 ! Go to <a href='/'>Home</a></p></body></html>");
 			return;
 		}
 
-    var url = 'http://ws.priceminister.com/rest/navigation/v1/list?pageNumber=1&advertType=ALL&channel=hackathon&loadProducts=true&withoutStock=true' + query;
+    var url = 'http://ws.priceminister.com/rest/navigation/v1/list?';
+        url += (typeof result.pageNumber === 'undefined' ? 'pageNumber=1&' : '');
+        url += 'advertType=ALL&channel=hackathon&loadProducts=true&withoutStock=true';
+        url += query;
+
+  console.log(url);
 
 		// TODO : add hash user session
 		var timeKey = '>> WS search for "' + query + '"';
