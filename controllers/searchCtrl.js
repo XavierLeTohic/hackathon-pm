@@ -39,7 +39,7 @@ exports.SearchAction = function (req, res) {
         url += 'advertType=ALL&channel=hackathon&loadProducts=true&withoutStock=true';
         url += query;
 
-  console.log(url);
+    console.log(url);
 
 		// TODO : add hash user session
 		var timeKey = '>> WS search for "' + query + '"';
@@ -67,8 +67,8 @@ exports.SearchAction = function (req, res) {
         response.end();
 		  }
 		  else {
-		    var requestRes = JSON.parse(body);
-        res.render('SearchPage', { title: 'Index' , products: requestRes.result.products, kw: req.query.kw});
+		    const requestRes = JSON.parse(body);
+        res.render('SearchPage', { title: 'Nagigation PriceMinister', currentUrl: req.url , products: requestRes.result.products, kw: req.query.kw, cats: requestRes.result.categories, filters: requestRes.result.filters});
 		  }
 		});
 

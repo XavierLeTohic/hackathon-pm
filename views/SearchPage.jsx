@@ -9,17 +9,73 @@ var React = require('react'),
 class SearchPage extends React.Component {
 
   getProductImage(product) {
+    if(typeof(product.images) === 'undefined' )
+      return 'http://www.lsa-conso.fr/mediatheque/2/5/4/000160452_74.jpg';
     return(product.images[0].imagesUrls.entry[1].url);
+  }
+  
+  getTargetUrl(key, value) {
+    let currentUrl = this.props.currentUrl;
+    if(currentUrl.indexOf('&' + key + '=') > -1) {
+      var reg=new RegExp('&' + key + '=[^&]*', "g");
+      return currentUrl.replace(reg, '&' + key + '=' + value);
+    }
+    return currentUrl + "&" + key + '=' + value ;
+  }
+
+  getSubFilters(key, filterValues) {
+    return filterValues.map(function(filterValue) {
+      let url = this.getTargetUrl(key, filterValue.value);
+      return (
+        <li>
+          <a href={url}>{filterValue.label} ({filterValue.productsCount})</a>
+        </li>
+      )
+    }.bind(this))
+  }
+
+  getFilters() {
+      
+    let filters = this.props.filters;
+     
+    return filters.map(function(filter) {
+      return (
+        <ul>
+          <li>
+            <b>{filter.name}</b>
+            <ul>{this.getSubFilters(filter.key, filter.filterValues)}</ul>
+          </li>
+        </ul>
+      )
+    }.bind(this))
+  }
+
+  getCategories() {
+      
+    let cats = this.props.cats;
+
+    if(Object.keys(cats).length === 0) {
+      return;
+    }
+
+    return (
+        <ul>
+          <li><b>CATEGORIES</b></li>
+          {cats.map(function(cat) {
+            let url = this.getTargetUrl('category', cat.name);
+            return <li key={cat.name}><a href={url}>{cat.label} ({cat.productsCount})</a></li>;
+          }.bind(this))}
+        </ul>
+    )
   }
 
   render() {
 
     let products = this.props.products;
 
-
-
     return (
       <DefaultLayout title={this.props.title}>
+
 
         <HeaderLayout kw={this.props.kw}>
         </HeaderLayout>
@@ -28,6 +84,15 @@ class SearchPage extends React.Component {
           <HeaderSearchLayout>
           </HeaderSearchLayout>
 
+          {this.getCategories()}
+
+
+          <br/>
+
+
+          {this.getFilters()}
+
+          <br/>
 
           <FlexContainerLayout element="ul" nameClass="productListSearch">
             {products.map(function(product) {
