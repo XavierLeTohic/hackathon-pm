@@ -8,12 +8,50 @@
 	.productListSearch
 		display flex
 		justify-content center
-		.imgProductCtn
-			square(100%)
-			min-width 200px
-			.imgProduct
-				border 2px solid $bodyBg
-				width 100%
+		li
+			a
+				color $colorText							
+			.avis
+				margin $miniSpacer 0 $miniSpacer 0
+				color $colorLink
+				display flex
+				
+			.topic
+				color lighten($colorText, 50%)
+				font-size 13px
+				
+			p 
+				margin 0
+							
+				
+			.bestPrice
+				color $colorPrimary
+				font-weight 700
+				margin $miniSpacer 0 $miniSpacer 0
+			
+			.marketPlace
+				font-size 13px
+				.offers
+					color lighten($colorText, 50%)
+				.price
+					color $colorPrimary
+				
+			
+			.suggest
+				border-radius $radius
+				background-color $bodyBg
+				text-transform uppercase
+				font-size 12px
+				padding 2px
+				color #a9adaf
+				font-weight 700
+				margin-left $miniSpacer
+				
+			.imgProductCtn
+				square(100%)
+				min-width 200px
+				.imgProduct				
+					width 100%
 
 @media only screen and (min-width: $screen-xs) 
 	.searchBlock
@@ -21,7 +59,7 @@
 			justify-content space-around
 			li
 				width 240px
-				margin 0 $miniSpacer $spacerBase 0
+				margin 0 $miniSpacer $spacerBase*4 0
 			.imgProductCtn
 				square(100%)
 				
@@ -29,4 +67,4 @@
 	.searchBlock
 		.productListSearch
 			li 
-				width  300px
+				width  250px

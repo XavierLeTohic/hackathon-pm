@@ -35,19 +35,22 @@ class SearchPage extends React.Component {
                   img = this.getProductImage(product);
               return <li key={product.id}>
 
-                <a href={url}><div className='imgProductCtn'>
 
-                  <Img src={img}  nameClass="imgProduct"></Img>
+                          <a href={url}><div className='imgProductCtn'>
 
-                </div></a>
-                <a href={url}><h1 className="product-title">{product.headline}</h1></a>
-                <a href="#"> {product.nbReviews} Avis</a>
-                <a href={url}>
-                  <p className="topic">{product.topic}</p>
-                  <p className="bestPrice">{product.bestPrice}<span className="suggest"> Offre suggérées</span></p>
-                  <p > <span className="price">{product.newBestPrice} €</span> neuf ({product.advertsNewCount} offres)</p>
-                  <p > <span className="price">{product.usedBestPrice} €</span> neuf ({product.advertsUsedCount} offres)</p>
-                </a>
+                            <Img src={img}  nameClass="imgProduct"></Img>
+
+                          </div></a>
+                          <a href={url}><h1 className="productTitle">{product.headline}</h1></a>
+                          <a href="#" className="avis">{product.nbReviews} Avis</a>
+                          <a href={url}>
+                            <p className="topic">{product.topic}</p>
+                            <p className="bestPrice">{product.bestPrice} €<span className="suggest">Offre suggérées</span></p>
+                            <div className="marketPlace">
+                              <p> <span className="price">{product.newBestPrice} €</span> neuf <span className="offers">({product.advertsNewCount} offres)</span></p>
+                              <p> <span className="price">{product.usedBestPrice} €</span> d'occasion <span className="offers">({product.advertsUsedCount} offres)</span></p>
+                            </div>
+                          </a>
 
 
 
