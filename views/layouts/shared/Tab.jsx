@@ -33,8 +33,6 @@ class Tab extends React.Component {
 
       else if(this.props.type === 'reviews') {
 
-        console.log(this.props.params);
-
         var reviews = this.props.params.reviews,
             nbr = this.props.params.nbr;
 

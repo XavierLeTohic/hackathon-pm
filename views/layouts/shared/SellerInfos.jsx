@@ -8,25 +8,45 @@ var React = require('react'),
 
 class SellerInfos extends React.Component {
 
-    render() {
+    getSellerType() {
+
+      let type = this.props.seller.type;
+
+      if(type === 'PRO') {
+
+        return(
+          <p>Vendeur Professionnel</p>
+        )
+      }
+      else if(type === 'INDIVIDUAL') {
 
         return (
-        	<FlexContainerLayout className={this.props.nameClass}>
-        		<div className="seller">
-		        	<Media>
-		        	  <Img src="../medias/icons/piece.png"/>
-		        	  <TextBlock>
-		        	    <p>Jean-Marie</p>
-		        	    <p>Nouveau vendeur</p>
-		        	  </TextBlock>
-		        	</Media>
-	        	</div>
-	        	<ImgBtnLayout>
-	        	</ImgBtnLayout>
+          <p>Particulier</p>
+        )
+      }
+    }
+
+    render() {
+
+      let seller = this.props.seller;
+
+      return (
+        <FlexContainerLayout className={this.props.nameClass}>
+          <div className="seller">
+            <Media>
+              <Img src="../medias/icons/piece.png"/>
+              <TextBlock>
+                <p>{seller.login}</p>
+                {this.getSellerType()}
+              </TextBlock>
+            </Media>
+          </div>
+          <ImgBtnLayout>
+          </ImgBtnLayout>
 
 
-        	</FlexContainerLayout>
-        );
+        </FlexContainerLayout>
+      );
     }
 };
 

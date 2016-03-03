@@ -8,34 +8,60 @@ var React = require('react'),
 		SellerComment = require('../shared/SellerComment'),
 		SellerInfos = require('../shared/SellerInfos'),
     BoxLayout = require('../shared/BoxLayout');
-	
+
 class ProductBuyboxLayout extends React.Component {
+
+    getBuyboxImage() {
+
+      let buybox = (this.props.buybox.new !== 'undefined' ? this.props.buybox.new.adverts[0] : this.props.buybox.used.adverts[0]);
+
+      if(buybox.imagesUrls.length > 0) {
+
+        return(
+          <Img src={buybox.imagesUrls[0]} nameClass="imgProduct" />
+        )
+      }
+      else {
+        return(
+          <Img src={this.props.productImage} nameClass="imgProduct" />
+        )
+      }
+    }
 
     render() {
 
-        return (
-            <BoxLayout nameClass="buybox">
-            		<FlexContainerLayout nameClass="productCard">
-            			<Img src="../medias/iphone.jpg" nameClass="imgProduct"></Img>
-            			<div className="infosProduct">
-            				<FlexContainerLayout >
-            					<Price>
-            					</Price>
-            					<ButtonLayout href="#" className="btn btn-primary">Ajouter au panier
-            					</ButtonLayout>
-            				</FlexContainerLayout>
-            				<SellerComment>
-            				</SellerComment>
-            			</div>
-            		</FlexContainerLayout>
-            		<SellerInfos nameClass="productCard" >
+      let buybox = (this.props.buybox.new !== 'undefined' ? this.props.buybox.new.adverts[0] : this.props.buybox.used.adverts[0]);
+      let shippingInfo = {
+        shippingTypes: buybox.shippingTypes,
+        availableShippingTypes: buybox.availableShippingTypes,
+        shippingAmount: buybox.shippingAmount,
+        isPickupAllowed: buybox.isPickupAllowed,
+        pickupDistance: buybox.pickupDistance,
+        isAdvertInCircleRange: buybox.isAdvertInCircleRange
+      };
 
-            		</SellerInfos>
+      return (
+        <BoxLayout nameClass="buybox">
+            <FlexContainerLayout nameClass="productCard">
+              {this.getBuyboxImage()}
+              <div className="infosProduct">
+                <FlexContainerLayout >
+                  <Price value={buybox.salePrice} quality={buybox.quality}>
+                  </Price>
+                  <ButtonLayout href="#" className="btn btn-primary">Ajouter au panier
+                  </ButtonLayout>
+                </FlexContainerLayout>
+                <SellerComment value={buybox.sellerComment}>
+                </SellerComment>
+              </div>
+            </FlexContainerLayout>
+            <SellerInfos nameClass="productCard" seller={buybox.seller}>
+            </SellerInfos>
 
-               	{this.props.children}
-            </BoxLayout>
-        );
+            {this.props.children}
+        </BoxLayout>
+      );
     }
-};
+}
 
 module.exports = ProductBuyboxLayout;
