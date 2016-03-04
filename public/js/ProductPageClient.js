@@ -207,6 +207,8 @@ if(ProductPageClientElm !== null) {
 
           bbType.innerHTML = 'Particulier';
         }
+        bbComment.innerHTML = typeof adv.sellerComment === 'undefined' ? '-' : adv.sellerComment;
+
 
       }.bind(this, advert));
     }
