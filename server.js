@@ -3,6 +3,7 @@ var express = require('express'),
     chalk = require('chalk'),
     compression = require('compression'),
     http = require('http'),
+    cache = require('./cache');
 
     routes = require('./routes'),
     app = module.exports.app = exports.app = express(),
@@ -15,6 +16,8 @@ var express = require('express'),
 http.globalAgent.maxSockets = 50;
 
 app.use(compression());
+
+cache.newCacheGroup('products').newCacheGroup('search').newCacheGroup('categories');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
@@ -49,32 +52,58 @@ app.listen(SERVER_PORT, function() {
     var url = 'http://ws.priceminister.com/rest/navigation/v1/list?pageNumber=1&advertType=ALL&channel=hackathon&loadProducts=false&withoutStock=false',
         timeKey = '>> WS get global navigation';
 
-    console.log(url);
-    console.time(timeKey);
+    var catRequest = function() {
+      'use strict';
 
-    request({
-      // will be ignored
-      method: 'GET',
-      uri: url,
+      console.log(url);
+      console.time(timeKey);
 
-      // HTTP Archive Request Object
-      har: {
-        url: url,
-        method: 'GET',
-        headers: headersDatas
-      }
-    },
-    function(error, response, body) {
-      console.timeEnd(timeKey);
+      request({
+          // will be ignored
+          method: 'GET',
+          uri: url,
 
-      if(error) {
-        console.error(error);
+          // HTTP Archive Request Object
+          har: {
+            url: url,
+            method: 'GET',
+            headers: headersDatas
+          }
+        },
+        function(error, response, body) {
+          console.timeEnd(timeKey);
+
+          if(error) {
+            console.error(error);
+          }
+          else {
+            let requestRes = JSON.parse(body);
+
+            cache.newCacheValue('categories', encodeURIComponent(url), JSON.stringify(requestRes));
+
+            process.PM.categories =  requestRes.result.categories;
+          }
+        });
+    };
+
+    cache.checkCache('categories', encodeURIComponent(url), function(file) {
+      'use strict';
+
+      if(file === null) {
+
+        catRequest();
       }
       else {
-        const requestRes = JSON.parse(body);
-        process.PM.categories =  requestRes.result.categories;
+
+        cache.getCacheValue('categories', encodeURIComponent(url), function(datas) {
+
+          let requestRes = JSON.parse(datas);
+          process.PM.categories =  requestRes.result.categories;
+        });
       }
+
     });
+
   }
 
 });

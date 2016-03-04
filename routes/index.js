@@ -10,7 +10,6 @@ module.exports = function(app) {
 
     app.get('/', indexCtrl.indexAction);
     app.get('/product/:id', productCtrl.ProductPage);
-    app.get('/adverts/:productId:advertType:channel:loadProductDetails', productCtrl.getAdverts);
 
     app.get('/search', searchCtrl.SearchAction);
 

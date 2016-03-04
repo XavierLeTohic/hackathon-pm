@@ -1,4 +1,5 @@
 var request = require('request'),
+    cache = require('../cache'),
     headersDatas = [{name: 'Accept',value: 'application/json'},{name: 'User-Agent',value: 'HACKATHON Q1.2016'}];
 /**
  * Search action
@@ -6,6 +7,7 @@ var request = require('request'),
  * @param res
  */
 exports.SearchAction = function (req, res) {
+    'use strict';
 
 		var query = '',
 		    result = req.query;
@@ -32,43 +34,69 @@ exports.SearchAction = function (req, res) {
 			return;
 		}
 
-    var url = 'http://ws.priceminister.com/rest/navigation/v1/list?';
-        url += (typeof result.pageNumber === 'undefined' ? 'pageNumber=1&' : '');
-        url += 'advertType=ALL&channel=hackathon&loadProducts=true&withoutStock=false';
-        url += query;
+    var searchRequest =function() {
 
-    console.log(url);
+      var url = 'http://ws.priceminister.com/rest/navigation/v1/list?';
+      url += (typeof result.pageNumber === 'undefined' ? 'pageNumber=1&' : '');
+      url += 'advertType=ALL&channel=hackathon&loadProducts=true&withoutStock=false';
+      url += query;
 
-		// TODO : add hash user session
-		var timeKey = '>> WS search for "' + query + '"';
-    console.time(timeKey);
+      console.log(url);
 
-		request({
-		  // will be ignored
-		  method: 'GET',
-		  uri: url,
+      // TODO : add hash user session
+      var timeKey = '>> WS search for "' + query + '"';
+      console.time(timeKey);
 
-		  // HTTP Archive Request Object
-		  har: {
-		    url: url,
-		    method: 'GET',
-		    headers: headersDatas
-		  }
-		},
-		function(error, response, body) {
-      console.timeEnd(timeKey);
+      request({
+          // will be ignored
+          method: 'GET',
+          uri: url,
 
-      if(error) {
-		    console.error(error);
-        response.writeHead(404, "Resource Not Found Arrrrrrggggg !", { "Content-Type": "text/html" });
-      	response.write("<html><html><head><title>404</title></head><body>404: Resource not found. Go to <a href='/'>Home</a></body></html>");
-        response.end();
-		  }
-		  else {
-		    const requestRes = JSON.parse(body);
-        res.render('SearchPage', { title: 'Nagigation PriceMinister', currentUrl: req.url , products: requestRes.result.products, kw: req.query.kw, cats: requestRes.result.categories, filters: requestRes.result.filters});
-		  }
-		});
+          // HTTP Archive Request Object
+          har: {
+            url: url,
+            method: 'GET',
+            headers: headersDatas
+          }
+        },
+        function(error, response, body) {
+          console.timeEnd(timeKey);
 
+          if(error) {
+            res.render('404');
+          }
+          else {
+            let requestRes = JSON.parse(body);
 
+            cache.newCacheValue('search', encodeURIComponent(result.pageNumber + query), JSON.stringify(requestRes));
+
+            res.render('SearchPage', { title: 'Navigation PriceMinister', currentUrl: req.url , products: requestRes.result.products, kw: req.query.kw, cats: requestRes.result.categories, filters: requestRes.result.filters});
+          }
+        });
+    };
+
+  console.log(result.pageNumber + query);
+
+    cache.checkCache('search', encodeURIComponent(result.pageNumber + query), function(file) {
+
+      if(file === null) {
+
+        searchRequest();
+      }
+      else {
+
+        cache.getCacheValue('search', encodeURIComponent(result.pageNumber + query), function(datas) {
+
+          if(datas === null) {
+
+            searchRequest();
+          }
+          else {
+
+            let requestRes = JSON.parse(datas);
+            res.render('SearchPage', { title: 'Nagigation PriceMinister', currentUrl: req.url , products: requestRes.result.products, kw: req.query.kw, cats: requestRes.result.categories, filters: requestRes.result.filters});
+          }
+        });
+      }
+    });
 };
