@@ -3,7 +3,8 @@ var React = require('react'),
     HeaderLayout = require('./layouts/header/HeaderLayout'),
     Media = require('./layouts/shared/Media'),
     Img = require('./layouts/shared/Img'),
-    TextBlock = require('./layouts/shared/TextBlock');
+    TextBlock = require('./layouts/shared/TextBlock'),
+    NavigationCategories = require('./layouts/SearchPage/NavigationCategories');
 
 class IndexPage extends React.Component {
 
@@ -11,28 +12,12 @@ class IndexPage extends React.Component {
 
         return (
             <DefaultLayout title={this.props.title}>
-                <HeaderLayout>
-                </HeaderLayout>
+                <HeaderLayout />
 
-                <section id="IndexPage" ></section>
+                <section id="IndexPage" />
 
-                <Media>
-                  <Img src="../medias/icons/piece.png" type="link" href="#"/>
-                  <TextBlock>
-                    <h4>
-                      test
-                    </h4>
-                  </TextBlock>
-                </Media>
+                <NavigationCategories cats={this.props.cats} targetPageUrl="/search" />
 
-                <Media>
-                  <Img src="../medias/icons/piece.png"/>
-                  <TextBlock>
-                    <h4>
-                      test
-                    </h4>
-                  </TextBlock>
-                </Media>
             </DefaultLayout>
         );
     }

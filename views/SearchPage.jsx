@@ -5,6 +5,7 @@ var React = require('react'),
     HeaderSearchLayout = require('./layouts/SearchPage/HeaderSearchLayout'),
     FlexContainerLayout = require('./layouts/shared/FlexContainerLayout'),
     Reviews = require('./layouts/shared/Reviews'),
+    NavigationCategories = require('./layouts/SearchPage/NavigationCategories'),
     HeaderLayout = require('./layouts/header/HeaderLayout');
 
 class SearchPage extends React.Component {
@@ -14,7 +15,7 @@ class SearchPage extends React.Component {
       return 'http://www.lsa-conso.fr/mediatheque/2/5/4/000160452_74.jpg';
     return(product.images[0].imagesUrls.entry[1].url);
   }
-  
+
   getTargetUrl(key, value) {
     let currentUrl = this.props.currentUrl;
     if(currentUrl.indexOf('&' + key + '=') > -1) {
@@ -36,9 +37,9 @@ class SearchPage extends React.Component {
   }
 
   getFilters() {
-      
+
     let filters = this.props.filters;
-     
+
     return filters.map(function(filter) {
       return (
         <ul key={filter.name}>
@@ -49,25 +50,6 @@ class SearchPage extends React.Component {
         </ul>
       )
     }.bind(this))
-  }
-
-  getCategories() {
-      
-    let cats = this.props.cats;
-
-    if(Object.keys(cats).length === 0) {
-      return;
-    }
-
-    return (
-        <ul>
-          <li><b>CATEGORIES</b></li>
-          {cats.map(function(cat) {
-            let url = this.getTargetUrl('category', cat.name);
-            return <li key={cat.name}><a href={url}>{cat.label} ({cat.productsCount})</a></li>;
-          }.bind(this))}
-        </ul>
-    )
   }
 
   render() {
@@ -85,8 +67,7 @@ class SearchPage extends React.Component {
           <HeaderSearchLayout>
           </HeaderSearchLayout>
 
-          {this.getCategories()}
-
+          <NavigationCategories cats={this.props.cats} targetPageUrl={this.props.currentUrl} />
 
           <br/>
 
@@ -109,7 +90,7 @@ class SearchPage extends React.Component {
                           </div></a>
                           <a href={url}><h1 className="productTitle">{product.headline}</h1></a>
                           <Reviews nbReviews={product.nbReviews} reviewsAverageNote={product.reviewsAverageNote}/>
-                          
+
                           <a href={url}>
                             <p className="topic">{product.topic}</p>
                             <p className="bestPrice">{product.bestPrice} €<span className="suggest">Offre suggérées</span></p>

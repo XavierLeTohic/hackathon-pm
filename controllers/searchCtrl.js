@@ -10,8 +10,6 @@ exports.SearchAction = function (req, res) {
 		var query = '',
 		    result = req.query;
 
-  console.log(result);
-
     for (var prop in result) {
 
 		    if (result.hasOwnProperty(prop)) {
@@ -36,7 +34,7 @@ exports.SearchAction = function (req, res) {
 
     var url = 'http://ws.priceminister.com/rest/navigation/v1/list?';
         url += (typeof result.pageNumber === 'undefined' ? 'pageNumber=1&' : '');
-        url += 'advertType=ALL&channel=hackathon&loadProducts=true&withoutStock=true';
+        url += 'advertType=ALL&channel=hackathon&loadProducts=true&withoutStock=false';
         url += query;
 
     console.log(url);

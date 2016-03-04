@@ -1,13 +1,11 @@
-/**
- * Page controller
- */
 
 /**
- * Index action
+ * HP : Index action
  * @param req
  * @param res
  */
 exports.indexAction = function (req, res) {
 
-    res.render('index', { title: 'Index' , name: 'you !'});
+    res.render('index', { title: 'Bienvenue sur PriceMinister', cats: process.PM.categories});
+
 };
