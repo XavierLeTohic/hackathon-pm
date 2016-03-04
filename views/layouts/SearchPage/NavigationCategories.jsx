@@ -10,7 +10,7 @@ class NavigationCategories extends React.Component {
       var reg=new RegExp(key + '=[^&]*', "g");
       return targetPageUrl.replace(reg, key + '=' + value);
     }
-    return targetPageUrl + (targetPageUrl.endsWith("/search") ? "?" : "&") + key + '=' + value ;
+    return targetPageUrl + (targetPageUrl.split('/search')[1] === '' ? "?" : "&") + key + '=' + value ;
   }
 
   getCategories() {
