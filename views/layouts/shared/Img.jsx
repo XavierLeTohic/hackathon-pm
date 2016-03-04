@@ -8,14 +8,14 @@ class Img extends React.Component {
 
       return (
         <a href={this.props.href}>
-          <img src={this.props.src} className={this.props.nameClass}/>
+          <img id={this.props.id} src={this.props.src} className={this.props.nameClass}/>
         </a>
       )
     }
     else {
 
       return (
-        <img src={this.props.src} className={this.props.nameClass}/>
+        <img id={this.props.id} src={this.props.src} className={this.props.nameClass}/>
       )
     }
   }

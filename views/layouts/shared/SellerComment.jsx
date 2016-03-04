@@ -8,9 +8,9 @@ class SellerComment extends React.Component {
     render() {
 
         return (
-        	<div className="sellerComment">
+        	<div className="sellerComment" id={this.props.id}>
         		<p className="label">Commentaire vendeur</p>
-        		<p>{this.props.value}</p>
+        		<p id="prdBuyboxSellerComment">{this.props.value}</p>
         	</div>
 
         );

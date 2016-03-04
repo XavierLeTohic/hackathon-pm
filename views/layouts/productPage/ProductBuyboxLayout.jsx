@@ -18,12 +18,12 @@ class ProductBuyboxLayout extends React.Component {
       if(buybox.imagesUrls.length > 0) {
 
         return(
-          <Img src={buybox.imagesUrls[0]} nameClass="imgProduct" />
+          <Img id="prdBuyboxImg" src={buybox.imagesUrls[0]} nameClass="imgProduct" />
         )
       }
       else {
         return(
-          <Img src={this.props.productImage} nameClass="imgProduct" />
+          <Img id="prdBuyboxImg" src={this.props.productImage} nameClass="imgProduct" />
         )
       }
     }
@@ -36,7 +36,7 @@ class ProductBuyboxLayout extends React.Component {
       let buybox = this.getAdvertBuyBox(this.props.buybox);
 
       if(buybox.sellerComment) {
-        return (<SellerComment value={buybox.sellerComment} />)
+        return (<SellerComment id="prdBuyboxSellerCommentBlock" value={buybox.sellerComment} />)
       }
 
     }
@@ -59,7 +59,7 @@ class ProductBuyboxLayout extends React.Component {
               {this.getBuyboxImage()}
               <div className="infosProduct">
                 <FlexContainerLayout >
-                  <Price value={buybox.salePrice} quality={buybox.quality}>
+                  <Price value={buybox.salePrice} quality={buybox.quality} id="prdBuyboxPrice">
                   </Price>
                   <ButtonLayout href="#" className="btn btn-primary">Ajouter au panier
                   </ButtonLayout>

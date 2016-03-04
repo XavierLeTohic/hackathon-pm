@@ -7,31 +7,31 @@ class Price extends React.Component {
     if(this.props.quality === 'NEW') {
 
       return(
-        <p className="state">Neuf</p>
+        <p className="state" id={ (this.props.id === 'prdBuyboxPrice' ? 'prdBuyboxQuality' : 'qualityValue' ) }>Neuf</p>
       )
     }
     else if(this.props.quality === 'LIKE_NEW') {
 
       return (
-        <p className="state">Comme neuf</p>
+        <p className="state" id={ (this.props.id === 'prdBuyboxPrice' ? 'prdBuyboxQuality' : 'qualityValue' ) }>Comme neuf</p>
       )
     }
     else if(this.props.quality === 'VERY_GOOD') {
 
       return (
-        <p className="state">Très bon état</p>
+        <p className="state" id={ (this.props.id === 'prdBuyboxPrice' ? 'prdBuyboxQuality' : 'qualityValue' ) }>Très bon état</p>
       )
     }
     else if(this.props.quality === 'GOOD') {
 
       return (
-        <p className="state">Bon état</p>
+        <p className="state" id={ (this.props.id === 'prdBuyboxPrice' ? 'prdBuyboxQuality' : 'qualityValue' ) }>Bon état</p>
       )
     }
     else if(this.props.quality === 'ACCEPTABLE') {
 
       return (
-        <p className="state">Correct</p>
+        <p className="state" id={ (this.props.id === 'prdBuyboxPrice' ? 'prdBuyboxQuality' : 'qualityValue' ) }>Correct</p>
       )
     }
   }
@@ -40,7 +40,7 @@ class Price extends React.Component {
 
     return (
       <div className="priceBlock">
-        <p className="price">{this.props.value}&nbsp;€&nbsp;-&nbsp;</p>
+        <p className="price" id={ (this.props.id === 'prdBuyboxPrice' ? 'prdBuyboxPriceValue' : 'priceValue' ) }>{this.props.value}&nbsp;€&nbsp;-&nbsp;</p>
         {this.getQuality()}
       </div>
     )

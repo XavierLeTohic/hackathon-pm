@@ -33,7 +33,7 @@ class ProductPage extends React.Component {
                   </ProductDetailsLayout>
 
                   <FlexContainerLayout nameClass = "productPage-main">
-                      <AdvertListingLayout product={this.props.product}>
+                      <AdvertListingLayout product={this.props.product} buybox={this.props.product.bestOffers}>
 
                       </AdvertListingLayout>
                       <ProductBuyBoxLayout buybox={this.props.product.bestOffers} productImage={this.props.product.imagesUrls[1]}>

@@ -7,24 +7,39 @@ var React = require('react'),
 
 class ProductAdvertListItem extends React.Component {
 
+
+  getClassName(adv) {
+
+    if(typeof adv.selected !== 'undefined' && adv.selected === true) {
+
+      return(
+        "advertListItem selected"
+      )
+    }
+    else {
+
+      return(
+        "advertListItem"
+      )
+    }
+  }
+
   render() {
 
     let advert = this.props.advert,
         advertId = advert.advertId;
 
     return (
-      <li>
-        <a href="#">
-          <Media nameClass="advertItem">
-             <Img src="../medias/icons/avatar.png"/>
-            <TextBlock>
-              <Price value={advert.salePrice} quality={advert.quality} />
-              <p>
-                <span className="shippingAmount">{ (advert.shippingAmount > 0 ? advert.shippingAmount + ' € de frais de port' : 'Livraison gratuite' ) }</span>
-              </p>
-            </TextBlock>
-          </Media>
-        </a>
+      <li data-advert data-json={JSON.stringify(advert)} className={this.getClassName(advert)}>
+        <Media nameClass="advertItem">
+           <Img src="../medias/icons/avatar.png"/>
+          <TextBlock>
+            <Price value={advert.salePrice} quality={advert.quality} />
+            <p>
+              <span className="shippingAmount">{ (advert.shippingAmount > 0 ? advert.shippingAmount + ' € de frais de port' : 'Livraison gratuite' ) }</span>
+            </p>
+          </TextBlock>
+        </Media>
       </li>
     );
   }

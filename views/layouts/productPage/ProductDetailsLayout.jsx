@@ -32,8 +32,8 @@ class ProductDetailsLayout extends React.Component {
               <Media nameClass="prdTitle">
                 <Img src={product.images[0].imagesUrls.entry[1].url} nameClass="imgProduct"/>
                 <TextBlock>
-                  <h1>{product.headline}</h1>
-                  <p>{product.caption}</p>
+                  <h1 id="prdHeadline">{product.headline}</h1>
+                  <p id="prdCaption">{product.caption}</p>
                 </TextBlock>
               </Media>
 

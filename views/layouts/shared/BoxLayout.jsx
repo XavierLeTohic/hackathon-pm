@@ -11,18 +11,18 @@ class BoxLayout extends React.Component {
 				</header>
 			)
 		}
-		
+
 		return (
-			<div className={ctnClass}>
+			<div className={ctnClass} id={this.props.id}>
 			    {this.props.children}
 			</div>
 		)
-		
+
 	}
 
   render() {
     return (
-      this.getTemplate()      
+      this.getTemplate()
     )
   }
 }

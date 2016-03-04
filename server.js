@@ -23,6 +23,11 @@ app.use(express.static('./public/libs'));
 
 routes(app);
 
+app.use(function(req, res, next) {
+  res.status = 404;
+  res.render('404');
+});
+
 app.listen(SERVER_PORT, function() {
   console.log(chalk.green(
     'Server is running on port ' + chalk.bold(SERVER_PORT)

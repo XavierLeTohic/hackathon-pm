@@ -7,7 +7,7 @@ class ProductAdvertList extends React.Component {
     let adverts = this.props.adverts;
 
     return (
-      <ul>
+      <ul className="advertList" id="advertList">
         {adverts.map(function(advert) {
 
           return (

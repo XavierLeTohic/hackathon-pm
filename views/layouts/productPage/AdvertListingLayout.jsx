@@ -6,13 +6,29 @@ var React = require('react'),
 
 class AdvertListingLayout extends React.Component {
 
+    getAdvertBuyBox(buybox) {
+      return (typeof buybox.new !== 'undefined' ? buybox.new.adverts[0] : buybox.used.adverts[0]);
+    }
+
     render() {
 
       let product = this.props.product,
-          adverts = product.adverts;
+          adverts = product.adverts,
+          buyboxAdvert = this.getAdvertBuyBox(this.props.buybox);
+
+      for(var i in adverts) {
+
+        if(adverts[i].advertId === buyboxAdvert.advertId) {
+
+          delete adverts[i];
+        }
+      }
+
+      buyboxAdvert.selected = true;
+      adverts.unshift(buyboxAdvert);
 
         return (
-            <BoxLayout nameClass="listing">
+            <BoxLayout nameClass="listing fadeBottom" id="advertListing">
             		<FlexContainerLayout type="header" nameClass="listing-header">
             			<p className="label">{product.advertsCount} annonces</p>
             			<a href="#">Filter</a>
