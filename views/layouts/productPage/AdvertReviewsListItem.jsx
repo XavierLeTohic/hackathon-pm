@@ -45,9 +45,9 @@ class AdvertReviewsListItem extends React.Component {
         </div>
 
         <div className="customerMessage">
-            <h1>{this.props.review.title}</h1>
+            <h2 className="reviewTitle">{this.props.review.title}</h2>
             <p>{this.props.review.description}</p>
-            <p>Publié {date}</p>
+            <p className="date">Publié {date}</p>
         </div>
       </li>
     );

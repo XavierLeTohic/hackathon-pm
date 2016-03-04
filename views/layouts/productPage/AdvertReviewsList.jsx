@@ -6,7 +6,7 @@ class AdvertReviewsList extends React.Component {
   render() {
 
     return (
-      <ul>
+      <ul className ="reviewsList">
         {this.props.reviews.map(function(review) {
 
           return (
