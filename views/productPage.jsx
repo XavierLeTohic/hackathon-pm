@@ -20,7 +20,7 @@ class ProductPage extends React.Component {
         { id : 'descriptifLnk', 'key': 2, 'name': 'Descriptif détaillé', 'url': '#modal-info' }
       ];
 
-      let buybox = typeof this.props.product.bestOffers === undefined ? this.props.product.adverts[0] : this.props.product.bestOffers;
+      let buybox = typeof this.props.product.bestOffers === 'undefined' ? this.props.product.adverts[0] : this.props.product.bestOffers;
 
       if(typeof buybox === 'undefined') {
         return (
