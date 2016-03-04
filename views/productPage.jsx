@@ -16,7 +16,7 @@ class ProductPage extends React.Component {
 
 
       let tabsList = [
-        { id : 'reviewsLnk',  'key': 1, 'name': 'Avis', 'url': '#modal-reviews' },
+        { id : 'reviewsLnk',  'key': 1, 'name': 'Avis', 'url': '#modal-reviews', className : 'active' },
         { id : 'descriptifLnk', 'key': 2, 'name': 'Descriptif détaillé', 'url': '#modal-info' }
       ];
 
