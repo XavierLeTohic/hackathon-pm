@@ -2,6 +2,7 @@ var express = require('express'),
     jsxEngine = require('express-react-views'),
     chalk = require('chalk'),
     compression = require('compression'),
+    http = require('http'),
 
     routes = require('./routes'),
     app = module.exports.app = exports.app = express(),
@@ -10,6 +11,8 @@ var express = require('express'),
     headersDatas = [{name: 'Accept',value: 'application/json'},{name: 'User-Agent',value: 'HACKATHON Q1.2016'}],
 
     SERVER_PORT = process.env.PORT || 8000;
+
+http.globalAgent.maxSockets = 50;
 
 app.use(compression());
 
