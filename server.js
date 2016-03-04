@@ -75,7 +75,6 @@ app.listen(SERVER_PORT, function() {
           }
         },
         function(error, response, body) {
-          'use strict';
 
           console.timeEnd(timeKey);
 
@@ -84,7 +83,7 @@ app.listen(SERVER_PORT, function() {
           }
           else {
 
-            let requestRes = JSON.parse(body);
+            var requestRes = JSON.parse(body);
 
             cache.newCacheValue('categories', encodeURIComponent(url), JSON.stringify(requestRes));
 
@@ -104,7 +103,7 @@ app.listen(SERVER_PORT, function() {
 
         cache.getCacheValue('categories', encodeURIComponent(url), function(datas) {
 
-          let requestRes = JSON.parse(datas);
+          var requestRes = JSON.parse(datas);
           process.PM.categories =  requestRes.result.categories;
         });
       }

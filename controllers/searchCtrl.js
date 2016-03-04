@@ -66,7 +66,7 @@ exports.SearchAction = function (req, res) {
             res.render('404');
           }
           else {
-            let requestRes = JSON.parse(body);
+            var requestRes = JSON.parse(body);
 
             cache.newCacheValue('search', encodeURIComponent(result.pageNumber + query), JSON.stringify(requestRes));
 
@@ -93,7 +93,7 @@ exports.SearchAction = function (req, res) {
           }
           else {
 
-            let requestRes = JSON.parse(datas);
+            var requestRes = JSON.parse(datas);
             res.render('SearchPage', { title: 'Nagigation PriceMinister', currentUrl: req.url , products: requestRes.result.products, kw: req.query.kw, cats: requestRes.result.categories, filters: requestRes.result.filters});
           }
         });
