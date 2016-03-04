@@ -4,10 +4,17 @@ var cache = {
 
   init: function() {
 
-    var dir = __dirname + '/tmp/cache';
+    if (!fs.existsSync(__dirname + '/tmp')) {
 
-    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(__dirname + '/tmp');
       fs.mkdirSync(__dirname + '/tmp/cache');
+
+    }
+    else {
+
+      if (!fs.existsSync(__dirname + '/tmp/cache')) {
+        fs.mkdirSync(__dirname + '/tmp/cache');
+      }
     }
 
     return this;

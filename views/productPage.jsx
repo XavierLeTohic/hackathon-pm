@@ -37,7 +37,7 @@ class ProductPage extends React.Component {
                       <AdvertListingLayout product={this.props.product} buybox={this.props.product.bestOffers}>
 
                       </AdvertListingLayout>
-                      <ProductBuyBoxLayout buybox={this.props.product.bestOffers} productImage={this.props.product.imagesUrls[1]}>
+                      <ProductBuyBoxLayout buybox={this.props.product.bestOffers} productImage={(this.props.product.imagesUrls.length > 0 ? this.props.product.imagesUrls[0] : 'http://pmcdn.staticpmrk.com/rakuten-static-deliver/app/285.0.0/2014121801/res/pm/front/brand/www/images/i18n/fr/cover_ML.gif')}>
 
                       </ProductBuyBoxLayout>
                   </FlexContainerLayout>

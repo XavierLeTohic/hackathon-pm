@@ -14,8 +14,11 @@ class ProductBuyboxLayout extends React.Component {
     getBuyboxImage() {
 
       let buybox = this.getAdvertBuyBox(this.props.buybox),
-          url = (buybox.imagesUrls.length > 0)  ? buybox.imagesUrls[0] : this.props.productImage,
-          computedUrl = url.split('_')[0].replace(".jpg", "") + "_600_600.jpg"
+          url = (buybox.imagesUrls.length > 0  ? buybox.imagesUrls[0] : this.props.productImage),
+          computedUrl = (url.indexOf('.gif') !== -1 ?  url.split('_')[0].replace(".jpg", "") + "_600_600.jpg": url);
+
+      console.log(computedUrl);
+
       return(
         <Img id="prdBuyboxImg" src={computedUrl} nameClass="imgProduct" />
       )
