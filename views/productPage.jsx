@@ -81,12 +81,11 @@ class ProductPage extends React.Component {
                   <TabsList tabsList={tabsList} className="inlineTabs">
 
                   </TabsList>
-                  <h1 className="modalTitle"> Avis sur {this.props.product.headline}  </h1>
-                  <AdvertReviewsList reviews={this.props.product.reviews} >
-
+                  <AdvertReviewsList reviews={this.props.product.reviews} id="reviewsCtn">
+                    <h1 className="modalTitle"> Avis sur {this.props.product.headline}  </h1>
                   </AdvertReviewsList>
 
-                  <DescLayout product={this.props.product} >
+                  <DescLayout product={this.props.product} id="descCtn">
 
                   </DescLayout>
                 </ModalLayout>

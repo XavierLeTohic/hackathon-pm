@@ -6,15 +6,18 @@ class AdvertReviewsList extends React.Component {
   render() {
 
     return (
-      <ul className ="reviewsList">
-        {this.props.reviews.map(function(review) {
+      <div id={this.props.id}>
+        {this.props.children}
+        <ul className ="reviewsList">
+          {this.props.reviews.map(function(review) {
 
-          return (
-            <AdvertReviewsListItem key={review.id} review={review}/>
-          )
+            return (
+              <AdvertReviewsListItem key={review.id} review={review}/>
+            )
 
-        }.bind(this))}
-      </ul>
+          }.bind(this))}
+        </ul>
+      </div>
     );
   }
 }

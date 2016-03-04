@@ -40,7 +40,7 @@ class Tab extends React.Component {
 			}
 
 			return(
-				<li className={this.props.className}><a id={this.props.id} href={this.props.url} className={this.props.className}>{this.props.name}</a></li>
+				<li className={this.props.className}><a id={this.props.id} href={this.props.url} className={this.props.className} data-modal={this.props.modalID}>{this.props.name}</a></li>
 			)
 		}
 

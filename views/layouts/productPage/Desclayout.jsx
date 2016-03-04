@@ -17,7 +17,7 @@ class DescLayout extends React.Component {
   render() {
 
     return (
-      <div className="descBlock">
+      <div className="descBlock" id={this.props.id}>
         <h1>Edito et titre</h1>
         {this.getProductDescription()}
       </div>

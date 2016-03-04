@@ -22,8 +22,8 @@ class ProductDetailsLayout extends React.Component {
               modalID : 'prdPageModal'
             },
             tabsList = [
-              { 'key': 1, 'name': 'Donner votre avis', 'url': '#', 'type': 'reviews', params: reviews },
-              { 'key': 2, 'name': 'Descriptif détaillé', 'url': '#' },
+              { 'key': 1, 'name': 'Donner votre avis', 'url': '#modal-reviews', 'type': 'reviews', params: reviews },
+              { 'key': 2, 'name': 'Descriptif détaillé', 'url': '#modal-info' , modalID: 'prdPageModal' },
               { 'key': 3, 'name': 'Vendre', 'url': '#', 'type': 'btn', className : 'btn btn-sell' }
             ];
 

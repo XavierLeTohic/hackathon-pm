@@ -1,5 +1,9 @@
 var ProductPageClientElm = document.getElementById('prdPage'),
-    ProductPageModalElm = document.getElementById('prdPageModal');
+    ProductPageModalElm = document.getElementById('prdPageModal'),
+    descBlock,
+    reviewsBlock,
+    reviewsLnk,
+    descriptifLnk;
 
 if(ProductPageClientElm !== null) {
 
@@ -17,12 +21,22 @@ if(ProductPageClientElm !== null) {
       )
     },
 
-    openModal: function() {
+    openModal: function(hash) {
+
+      document.body.style.overflow = 'hidden';
+
+      this.switchTab(hash);
+
       this.modalIsOpen = true;
       this.modalCtn.className = 'modal-backdrop show';
+
+      this.resize();
     },
 
     closeModal: function() {
+
+      document.body.style.overflow = 'auto';
+
       this.modalIsOpen = false;
       this.modalCtn.className = 'modal-backdrop';
     },
@@ -35,11 +49,11 @@ if(ProductPageClientElm !== null) {
 
         for(var i = 0, len = elms.length; i < len; i++) {
 
-          elms[i].addEventListener('click', function() {
+          elms[i].addEventListener('click', function(elm) {
 
-            this.openModal();
+            this.openModal(elm.href.split('#')[1]);
 
-          }.bind(this));
+          }.bind(this, elms[i]));
         }
       }
     },
@@ -58,18 +72,83 @@ if(ProductPageClientElm !== null) {
     },
 
     handleClick: function(e) {
-      var self = this,
-          reviewsLnk = document.getElementById('reviewsLnk'),
-          descriptifLnk = document.getElementById('descriptifLnk');
+
+      reviewsLnk = document.getElementById('reviewsLnk');
+      descriptifLnk = document.getElementById('descriptifLnk');
 
       if(e.target === reviewsLnk) {
-        console.log(reviewsLnk);
-        return <div>yolo</div>
+        this.switchTab('reviews');
+      }
+      else if(e.target === descriptifLnk) {
+        this.switchTab('info');
       }
 
-      else if(e.target === descriptifLnk) {
-        console.log(descriptifLnk);
+    },
+
+    switchTab: function(key) {
+
+      descBlock = document.getElementById('descCtn');
+      reviewsBlock = document.getElementById('reviewsCtn');
+      reviewsLnk = document.getElementById('reviewsLnk');
+      descriptifLnk = document.getElementById('descriptifLnk');
+
+      if(typeof key !== 'undefined') {
+
+        if(key === 'reviews' || key === 'modal-reviews') {
+
+          reviewsLnk.parentElement.className = 'active';
+          reviewsLnk.className = 'active';
+
+          descriptifLnk.parentElement.className = '';
+          descriptifLnk.className = '';
+
+          descBlock.style.display = 'none';
+          reviewsBlock.style.display = 'block';
+        }
+        else if(key === 'info' || key === 'modal-info') {
+
+          reviewsLnk.parentElement.className = '';
+          reviewsLnk.className = '';
+
+          descriptifLnk.parentElement.className = 'active';
+          descriptifLnk.className = 'active';
+
+          descBlock.style.display = 'block';
+          reviewsBlock.style.display = 'none';
+        }
       }
+      else {
+
+        var hash = window.location.hash;
+
+        if(hash !== '#') {
+
+          if(hash === '#modal-reviews') {
+
+            descBlock.style.display = 'none';
+            reviewsBlock.style.display = 'block';
+          }
+          else if(hash === '#modal-info') {
+
+            descBlock.style.display = 'block';
+            reviewsBlock.style.display = 'none';
+          }
+        }
+        else {
+          descBlock.style.display = 'none';
+          reviewsBlock.style.display = 'none';
+        }
+      }
+
+      this.resize()
+    },
+
+    resize: function() {
+
+      var modal = document.getElementById('prdPageModal').children[0];
+
+      modal.style.maxHeight = (window.innerHeight - 50) + 'px';
+      modal.style.top = (window.innerHeight - modal.offsetHeight) / 2 + 'px';
 
     },
 
@@ -81,6 +160,11 @@ if(ProductPageClientElm !== null) {
       this.cloneModal();
       this.registerModalHandler();
       this.handleClose();
+
+      document.getElementById('descCtn').style.display = 'none';
+      document.getElementById('reviewsCtn').style.display = 'none';
+
+      this.resize();
 
       return (
         this.cloneModal()
@@ -109,8 +193,6 @@ if(ProductPageClientElm !== null) {
         var datas = JSON.parse(res.target.responseText),
           adverts = JSON.parse(datas),
           results = adverts.result;
-
-        console.log(results)
 
       }
 
