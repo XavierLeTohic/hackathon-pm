@@ -114,7 +114,7 @@ class SearchPage extends React.Component {
 
 
 
-
+        <script type="text/javascript" src="../js/displaySearch.js"></script>
       </DefaultLayout>
     )
   }
