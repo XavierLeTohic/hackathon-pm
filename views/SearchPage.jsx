@@ -30,9 +30,11 @@ class SearchPage extends React.Component {
       let url = this.getTargetUrl(key, filterValue.value);
       return (
         <li key={filterValue.value}>
-          <a href={url}>{filterValue.label} ({filterValue.productsCount})</a>
+          <a href={url}>
+            {filterValue.label} <span class="navCounter">({filterValue.productsCount})</span>
+          </a>
         </li>
-      )
+      );
     }.bind(this))
   }
 
@@ -42,12 +44,12 @@ class SearchPage extends React.Component {
 
     return filters.map(function(filter) {
       return (
-        <ul key={filter.name}>
-          <li>
-            <b>{filter.name}</b>
-            <ul>{this.getSubFilters(filter.key, filter.filterValues)}</ul>
-          </li>
-        </ul>
+          <ul key={filter.name}>
+            <li>
+              <b>{filter.name}</b>
+            </li>
+            {this.getSubFilters(filter.key, filter.filterValues)}
+          </ul>
       )
     }.bind(this))
   }
@@ -63,53 +65,51 @@ class SearchPage extends React.Component {
 
         <HeaderLayout kw={this.props.kw}>
         </HeaderLayout>
+        <FlexContainerLayout nameClass="nav">
+          <BoxLayout nameClass="filterSearch">
+            <NavigationCategories cats={this.props.cats} targetPageUrl={this.props.currentUrl} />
 
-        <BoxLayout nameClass="searchBlock">
-          <HeaderSearchLayout>
-          </HeaderSearchLayout>
+            {this.getFilters()}
+          </BoxLayout>
 
-          <NavigationCategories cats={this.props.cats} targetPageUrl={this.props.currentUrl}  displayCount="true" />
+          <BoxLayout nameClass="searchBlock">
+            <HeaderSearchLayout>
+            </HeaderSearchLayout>
 
-          <br/>
-
-
-          {this.getFilters()}
-
-          <br/>
-
-          <FlexContainerLayout element="ul" nameClass="productListSearch ">
-            {products.map(function(product) {
-              let url = '/product/' + product.id,
-                  img = this.getProductImage(product);
-              return <li key={product.id}>
+            <FlexContainerLayout element="ul" nameClass="productListSearch">
+              {products.map(function(product) {
+                let url = '/product/' + product.id,
+                    img = this.getProductImage(product);
+                return <li key={product.id}>
 
 
-                <a href={url}>
+              <a href={url}>
                   <div className='imgProductCtn'>
-                    <Img src={img}  nameClass="imgProduct"></Img>
+                  <Img src={img}  nameClass="imgProduct"></Img>
                   </div>
                 </a>
 
                 <div>
                   <a href={url}><h1 className="productTitle">{product.headline}</h1></a>
+
                   <Reviews nbReviews={product.nbReviews} reviewsAverageNote={product.reviewsAverageNote}/>
-                  <a href={url}><p className="topic">{product.topic}</p></a>
-                  </div>
-
-                <a href={url}>
-                  <p className="bestPrice">{product.bestPrice} €<span className="suggest">Offre suggérée</span></p>
-                  <div className="marketPlace">
-                    <p> <span className="price">{product.newBestPrice} €</span> neuf <span className="offers">({product.advertsNewCount} offres)</span></p>
-                    <p> <span className="price">{product.usedBestPrice} €</span> d'occasion <span className="offers">({product.advertsUsedCount} offres)</span></p>
-                  </div>
-                </a>
-
+                  <p className="topic">{product.topic}</p>
+                </div>
+                            <a href={url}>
+                              <p className="bestPrice">{product.bestPrice} €<span className="suggest">Offre suggérée</span></p>
+                              <div className="marketPlace">
+                                <p> <span className="price">{product.newBestPrice} €</span> neuf <span className="offers">({product.advertsNewCount} offres)</span></p>
+                                <p> <span className="price">{product.usedBestPrice} €</span> d'occasion <span className="offers">({product.advertsUsedCount} offres)</span></p>
+                              </div>
+                            </a>
 
 
-                      </li>;
-            }.bind(this))}
-          </FlexContainerLayout>
-        </BoxLayout>
+                        </li>;
+              }.bind(this))}
+            </FlexContainerLayout>
+          </BoxLayout>
+        </FlexContainerLayout>
+
 
 
 

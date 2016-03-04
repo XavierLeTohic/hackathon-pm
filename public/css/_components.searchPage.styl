@@ -1,145 +1,151 @@
-.box.searchBlock
-  padding 0
-.header-search
-  border-bottom 1px solid $colorSeparator
-  padding-botom $spacerBase
-.searchBlock
-  .pickerList
-    flex-grow 1
-    display flex
-    align-items: center
-    .custom-select
-      padding-left $spacerBase
-    .custom-select-value
-      font-weight 600
-      display inline-block
-
-    select
-      background $white
-      border none
-      color $colorLink
-      height 50px
-      &:focus
-        outline none
-      &:hover
-        cursor pointer
-      option
-        background none
-
-    li
-      margin-right $spacerBase
-  .productListSearch
-    display flex
-    justify-content center
-    padding $spacerBase
-    li
-      padding $spacerBase*2 0
-      border-bottom 1px solid $colorSeparator
-
-      .productTitle
-        font-size 16px
-        margin-top ($miniSpacer / 2)
-        margin-bottom $miniSpacer
-
-      .rating
-        margin-bottom ($miniSpacer /2)
-
-      a
-        color $colorText
-      .avis
-        margin ($miniSpacer / 2) 0 ($miniSpacer / 2) 0
-        color $colorLink
-
-      .topic
-        color lighten($colorText, 50%)
-        font-size 13px
-
-      p
-        margin 0
-
-
-      .bestPrice
-        color $colorPrimary
-        font-weight 700
-        margin $miniSpacer 0 (($miniSpacer/2) + 2px) 0
-        font-size 18px
-
-      .marketPlace
-        font-size 13px
-        .offers
-          color lighten($colorText, 50%)
-        .price
-          color $colorPrimary
-
-
-      .suggest
-        border-radius $radius
-        background-color $bodyBg
-        text-transform uppercase
-        font-size 12px
-        padding 3px 5px
-        color #a9adaf
-        font-weight 700
-        margin-left $miniSpacer
-
-      .imgProductCtn
-        square(100%)
-        min-width 50px
-        .imgProduct
-          width 100%
-
-@media only screen and (min-width: $screen-xs)
+.filterSearch
+    width 100%
+    ul
+      margin-bottom $spacerBase
+      li
+        a
+          color $colorText
+          padding $miniSpacer
+          display block
+          border-bottom 1px solid $colorSeparator
+          &:hover
+            background $colorBackground
+            cursor pointer
+          span
+            font-size 11px
+            color lighten($colorText, 50%)
+      li:first-child
+        b
+          display block
+          margin-bottom $miniSpacer
+      li:last-child
+        a
+          border-bottom 0
+.nav
+  flex-wrap wrap
+  flex-direction column
+  .box.searchBlock
+    padding 0
+  .header-search
+    border-bottom 1px solid $colorSeparator
+    padding-botom $spacerBase
+    padding $miniSpacer
   .searchBlock
+    .pickerList
+      flex-grow 1
+      display flex
+      align-items: center
+      .custom-select
+        padding-left $spacerBase
+      .custom-select-value
+        font-weight 600
+        display inline-block
+
+      select
+        background $white
+        border none
+        color $colorLink
+        line-height 50px
+        margin-left -8px
+        &:focus
+          outline none
+        &:hover
+          cursor pointer
+        option
+          background none
+
+      li
+        margin-right $spacerBase
     .productListSearch
-      justify-content space-around
+      display flex
+      flex-wrap wrap
+      justify-content center
+      padding $spacerBase
       li
-        width 240px
-
-        border-bottom 0px
-
-      .imgProductCtn
-        square(100%)
-
-    .inline.productListSearch
-      flex-direction column
-
-      li
-        max-width $screen-md
-        width  100%
-        display flex
-        flex-direction row
-        justify-content center
-        margin 0 auto
-        border-bottom 1px solid $bodyBg
+        padding $spacerBase*2 0
+        border-bottom 1px solid $colorSeparator
 
         .productTitle
           font-size 16px
-          margin-top 0
+          margin-top ($miniSpacer / 2)
+          margin-bottom $miniSpacer
+       .rating
+          margin-bottom ($miniSpacer /2)
+
+        a
+          color $colorText
+        .avis
+          margin ($miniSpacer / 2) 0 ($miniSpacer / 2) 0
+          color $colorLink
+          display flex
+
+        .topic
+          color lighten($colorText, 50%)
+          font-size 13px
+
+        p
+          margin 0
+
 
         .bestPrice
-          margin-top 0
+          color $colorPrimary
+          font-weight 700
+          margin $miniSpacer 0 (($miniSpacer/2) + 2px) 0
+          font-size 18px
+
+        .marketPlace
+          font-size 13px
+          .offers
+            color lighten($colorText, 50%)
+          .price
+            color $colorPrimary
 
 
-        &>a
-          &:first-child
-            width 100px
-          &:nth-child(3)
-            align-self center
+        .suggest
+          border-radius $radius
+          background-color $bodyBg
+          text-transform uppercase
+          font-size 12px
+          padding 3px 5px
+          color #a9adaf
+          font-weight 700
+          margin-left $miniSpacer
 
-        &>div
-          flex-grow 1
-          align-self center
-          margin-left $spacerBase
-          margin-right $spacerBase
+        .imgProductCtn
+          square(100%)
+          min-width 200px
+          .imgProduct
+            width 100%
 
 
 
 
+@media only screen and (min-width: ($screen-xs + 200px))
+  .nav
+    flex-wrap nowrap
+    flex-direction row
+    .filterSearch
+      align-self flex-start
+      margin-right $spacerBase
+      flex-grow 1
+      min-width 300px
+    .searchBlock
+      .productListSearch
+        justify-content space-around
+        li
+          width 240px
 
-@media only screen and (min-width: $screen-md)
-  .searchBlock
-    .productListSearch
-      li
-        width  250px
+          border-bottom 0px
+
+        .imgProductCtn
+          square(100%)
+  select
+    margin-left -8px
+
+  @media only screen and (min-width: $screen-md)
+    .searchBlock
+      .productListSearch
+        li
+          width  250px
 
 

@@ -27,9 +27,12 @@ class NavigationCategories extends React.Component {
         <ul>
           <li><b>CATEGORIES</b></li>
           {cats.map(function(cat) {
-            let labelSuffix = this.props.displayCount ?  '(' + cat.productsCount + ')' : '';
             let url = this.getTargetUrl('category', cat.name);
-            return <li key={cat.name}><a href={url}>{cat.label} {labelSuffix}</a></li>;
+            return (
+              <li key={cat.name}>
+                <a href={url}>{cat.label} <span class='navCounter'>({cat.productsCount})</span></a>
+              </li>
+            );
           }.bind(this))}
         </ul>
     )
