@@ -13,7 +13,7 @@ if(ProductPageClientElm !== null) {
     cloneModal: function() {
 
       return (
-        <div className="modal" dangerouslySetInnerHTML={this.createMarkup()}></div>
+        <div className="modal" onClick={this.handleClick} dangerouslySetInnerHTML={this.createMarkup()}></div>
       )
     },
 
@@ -57,8 +57,25 @@ if(ProductPageClientElm !== null) {
       });
     },
 
+    handleClick: function(e) {
+      var self = this,
+          reviewsLnk = document.getElementById('reviewsLnk'),
+          descriptifLnk = document.getElementById('descriptifLnk');
+
+      if(e.target === reviewsLnk) {
+        console.log(reviewsLnk);
+        return <div>yolo</div>
+      }
+
+      else if(e.target === descriptifLnk) {
+        console.log(descriptifLnk);
+      }
+
+    },
+
     render: function () {
 
+      popin start
       this.modalIsOpen = false;
       this.modalCtn = ProductPageModalElm;
 

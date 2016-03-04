@@ -14,10 +14,13 @@ class Reviews extends React.Component {
           <span className="stars" style={ starsStyle }></span>
           <span property="ratingValue">{this.props.reviewsAverageNote}</span>
         </span>
-        <span><a href="#" className="avis" data-modal={this.props.dataModal}>{this.props.nbReviews > 0 ? this.props.nbReviews + ' avis' : 'Donnez votre avis'}</a></span>
+        <span><a id={this.props.id} href={this.props.url} className="avis" data-modal={this.props.dataModal}>{this.props.nbReviews > 0 ? this.props.nbReviews + ' avis' : 'Donnez votre avis'}</a></span>
       </div>
     )
   }
 }
 
 module.exports = Reviews;
+
+
+

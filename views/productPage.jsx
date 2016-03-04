@@ -7,6 +7,7 @@ var React = require('react'),
     AdvertReviewsList = require('./layouts/productPage/AdvertReviewsList'),
     HeaderLayout = require('./layouts/header/HeaderLayout'),
     ModalLayout = require('./layouts/Modal/ModalLayout'),
+    DescLayout = require('./layouts/productPage/DescLayout'),
     TabsList = require('./layouts/shared/TabsList');
 
 class ProductPage extends React.Component {
@@ -15,8 +16,8 @@ class ProductPage extends React.Component {
 
 
       let tabsList = [
-        { 'key': 1, 'name': 'Avis', 'url': '#modal-reviews' },
-        { 'key': 2, 'name': 'Descriptif détaillé', 'url': '#modal-info' }
+        { id : 'reviewsLnk',  'key': 1, 'name': 'Avis', 'url': '#modal-reviews' },
+        { id : 'descriptifLnk', 'key': 2, 'name': 'Descriptif détaillé', 'url': '#modal-info' }
       ];
 
 
@@ -45,9 +46,13 @@ class ProductPage extends React.Component {
                   <TabsList tabsList={tabsList} className="inlineTabs">
 
                   </TabsList>
-                  <AdvertReviewsList reviews={this.props.product.reviews}>
+                  <AdvertReviewsList reviews={this.props.product.reviews} >
 
                   </AdvertReviewsList>
+
+                  <DescLayout product={this.props.product} >
+
+                  </DescLayout>
                 </ModalLayout>
 
               </section>

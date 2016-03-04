@@ -1,5 +1,8 @@
 var React = require('react'),
+    moment = require('moment'),
     Media = require('../shared/Media.jsx'),
+    TextBlock = require('../shared/TextBlock.jsx'),
+    ReviewsBuy = require('../shared/ReviewsBuy.jsx'),
     Img = require('../shared/Img.jsx');
 
 class AdvertReviewsListItem extends React.Component {
@@ -22,17 +25,29 @@ class AdvertReviewsListItem extends React.Component {
       "description": "c'était pour mon fils très heureux du jeu,passe de bonne soirée avec ses copains"
     };
 
+    moment.locale('fr');
+    var date = moment(this.props.review.date).startOf('day').fromNow();
+
     return (
       <li className="reviewsItem">
 
         <div className="customerProfile">
           <Media>
-            <Img />
+            <Img src="../medias/icons/avatar.png"/>
+            <TextBlock>
+              <p>{this.props.review.author.login}</p>
+              <ReviewsBuy note={this.props.review.note}>
+
+              </ReviewsBuy>
+
+            </TextBlock>
           </Media>
         </div>
 
         <div className="customerMessage">
-
+            <h1>{this.props.review.title}</h1>
+            <p>{this.props.review.description}</p>
+            <p>Publié {date}</p>
         </div>
       </li>
     );
