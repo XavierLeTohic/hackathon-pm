@@ -20,6 +20,41 @@ class ProductPage extends React.Component {
         { id : 'descriptifLnk', 'key': 2, 'name': 'Descriptif détaillé', 'url': '#modal-info' }
       ];
 
+      let buybox = typeof this.props.product.bestOffers === undefined ? this.props.product.adverts[0] : this.props.product.bestOffers;
+
+      if(typeof buybox === 'undefined') {
+        return (
+            <DefaultLayout title={this.props.title}>
+
+                <HeaderLayout>
+                </HeaderLayout>
+
+                <section id="prdPage" >
+
+                    <ProductDetailsLayout product={this.props.product}>
+
+                    </ProductDetailsLayout>
+
+                  Pas d'annonce pour ce produit ! :(
+
+                  <ModalLayout id="prdPageModal">
+                    <TabsList tabsList={tabsList} className="inlineTabs">
+
+                    </TabsList>
+                    <h1 className="modalTitle"> Avis sur {this.props.product.headline}  </h1>
+                    <AdvertReviewsList reviews={this.props.product.reviews} >
+
+                    </AdvertReviewsList>
+
+                    <DescLayout product={this.props.product} >
+
+                    </DescLayout>
+                  </ModalLayout>
+
+                </section>
+            </DefaultLayout>
+        );
+      }
 
       return (
           <DefaultLayout title={this.props.title}>
