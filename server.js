@@ -19,7 +19,7 @@ http.globalAgent.maxSockets = 50;
 
 app.use(compression());
 
-cache.newCacheGroup('products').newCacheGroup('search').newCacheGroup('categories');
+cache.init().newCacheGroup('products').newCacheGroup('search').newCacheGroup('categories');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');

@@ -4,13 +4,19 @@ var cache = {
 
   init: function() {
 
+    var dir = __dirname + '/tmp/cache';
+
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(__dirname + '/tmp/cache');
+    }
+
     return this;
   },
 
   newCacheGroup: function(group) {
     'use strict';
 
-    let dir = __dirname + '/tmp/cache/' + group;
+    var dir = __dirname + '/tmp/cache/' + group;
 
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(__dirname + '/tmp/cache/' + group);
@@ -22,7 +28,7 @@ var cache = {
   newCacheValue: function(group, key, datas) {
     'use strict';
 
-    let dir = __dirname + '/tmp/cache/' + group;
+    var dir = __dirname + '/tmp/cache/' + group;
 
     if (fs.existsSync(dir)) {
 
@@ -38,7 +44,7 @@ var cache = {
   getCacheValue: function(group, key, callback) {
     'use strict';
 
-    let dir = __dirname + '/tmp/cache/' + group + '/' + key + '.json';
+    var dir = __dirname + '/tmp/cache/' + group + '/' + key + '.json';
 
     if (fs.existsSync(dir)){
 
@@ -60,16 +66,16 @@ var cache = {
   checkCache: function(group, key, callback) {
     'use strict';
 
-    let dir = __dirname + '/tmp/cache/' + group;
+    var dir = __dirname + '/tmp/cache/' + group;
 
     if (fs.existsSync(dir)){
 
-      let files = fs.readdirSync(__dirname + '/tmp/cache/' + group);
+      var files = fs.readdirSync(__dirname + '/tmp/cache/' + group);
 
 
       if(files.length > 0) {
 
-        let index = files.indexOf(key + '.json');
+        var index = files.indexOf(key + '.json');
 
         if(index !== -1) {
 

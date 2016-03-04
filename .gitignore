@@ -3,4 +3,4 @@ public/libs
 public/build
 .idea
 .DS_Store
-cache/tmp
+cache/tmp/cache//
