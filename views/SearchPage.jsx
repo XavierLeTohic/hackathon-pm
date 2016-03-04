@@ -77,29 +77,32 @@ class SearchPage extends React.Component {
 
           <br/>
 
-          <FlexContainerLayout element="ul" nameClass="productListSearch">
+          <FlexContainerLayout element="ul" nameClass="productListSearch ">
             {products.map(function(product) {
               let url = '/product/' + product.id,
                   img = this.getProductImage(product);
               return <li key={product.id}>
 
 
-                          <a href={url}><div className='imgProductCtn'>
+                <a href={url}>
+                  <div className='imgProductCtn'>
+                    <Img src={img}  nameClass="imgProduct"></Img>
+                  </div>
+                </a>
 
-                            <Img src={img}  nameClass="imgProduct"></Img>
+                <div>
+                  <a href={url}><h1 className="productTitle">{product.headline}</h1></a>
+                  <Reviews nbReviews={product.nbReviews} reviewsAverageNote={product.reviewsAverageNote}/>
+                  <a href={url}><p className="topic">{product.topic}</p></a>
+                  </div>
 
-                          </div></a>
-                          <a href={url}><h1 className="productTitle">{product.headline}</h1></a>
-                          <Reviews nbReviews={product.nbReviews} reviewsAverageNote={product.reviewsAverageNote}/>
-
-                          <a href={url}>
-                            <p className="topic">{product.topic}</p>
-                            <p className="bestPrice">{product.bestPrice} €<span className="suggest">Offre suggérée</span></p>
-                            <div className="marketPlace">
-                              <p> <span className="price">{product.newBestPrice} €</span> neuf <span className="offers">({product.advertsNewCount} offres)</span></p>
-                              <p> <span className="price">{product.usedBestPrice} €</span> d'occasion <span className="offers">({product.advertsUsedCount} offres)</span></p>
-                            </div>
-                          </a>
+                <a href={url}>
+                  <p className="bestPrice">{product.bestPrice} €<span className="suggest">Offre suggérée</span></p>
+                  <div className="marketPlace">
+                    <p> <span className="price">{product.newBestPrice} €</span> neuf <span className="offers">({product.advertsNewCount} offres)</span></p>
+                    <p> <span className="price">{product.usedBestPrice} €</span> d'occasion <span className="offers">({product.advertsUsedCount} offres)</span></p>
+                  </div>
+                </a>
 
 
 
