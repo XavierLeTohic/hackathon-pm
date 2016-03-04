@@ -28,24 +28,18 @@ app.listen(SERVER_PORT, function() {
     'Server is running on port ' + chalk.bold(SERVER_PORT)
   ));
 
-console.log(global.PM);
-
-  if(typeof global.PM === 'undefined') {
-    global.PM = {};
+  if(typeof process.PM === 'undefined') {
+    process.PM = {};
   }
 
-console.log(global.PM.categories);
-  if(typeof global.PM.categories === 'undefined') {
+
+  if(typeof process.PM.categories === 'undefined') {
     /**  INIT DE LA NAV GLOBAL **/
     var url = 'http://ws.priceminister.com/rest/navigation/v1/list?pageNumber=1&advertType=ALL&channel=hackathon&loadProducts=false&withoutStock=false',
         timeKey = '>> WS get global navigation';
 
     console.log(url);
     console.time(timeKey);
-
-
-
-
 
     request({
       // will be ignored
@@ -67,7 +61,7 @@ console.log(global.PM.categories);
       }
       else {
         const requestRes = JSON.parse(body);
-        global.PM.categories =  requestRes.result.categories;
+        process.PM.categories =  requestRes.result.categories;
       }
     });
   }

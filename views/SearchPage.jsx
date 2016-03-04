@@ -67,7 +67,7 @@ class SearchPage extends React.Component {
           <HeaderSearchLayout>
           </HeaderSearchLayout>
 
-          <NavigationCategories cats={this.props.cats} targetPageUrl={this.props.currentUrl} />
+          <NavigationCategories cats={this.props.cats} targetPageUrl={this.props.currentUrl}  displayCount="true" />
 
           <br/>
 
