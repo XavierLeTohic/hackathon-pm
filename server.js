@@ -1,9 +1,11 @@
+'use strict';
+
 var express = require('express'),
     jsxEngine = require('express-react-views'),
     chalk = require('chalk'),
     compression = require('compression'),
     http = require('http'),
-    cache = require('./cache');
+    cache = require('./cache'),
 
     routes = require('./routes'),
     app = module.exports.app = exports.app = express(),
@@ -38,6 +40,8 @@ app.use(function(req, res, next) {
 });
 
 app.listen(SERVER_PORT, function() {
+  'use strict';
+
   console.log(chalk.green(
     'Server is running on port ' + chalk.bold(SERVER_PORT)
   ));
@@ -79,6 +83,7 @@ app.listen(SERVER_PORT, function() {
             console.error(error);
           }
           else {
+
             let requestRes = JSON.parse(body);
 
             cache.newCacheValue('categories', encodeURIComponent(url), JSON.stringify(requestRes));
