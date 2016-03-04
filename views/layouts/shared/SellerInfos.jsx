@@ -15,13 +15,13 @@ class SellerInfos extends React.Component {
       if(type === 'PRO') {
 
         return(
-          <p>Vendeur Professionnel</p>
+          <p className="sellerType">Vendeur Professionnel</p>
         )
       }
       else if(type === 'INDIVIDUAL') {
 
         return (
-          <p>Particulier</p>
+          <p className="sellerType">Particulier</p>
         )
       }
     }
@@ -36,7 +36,7 @@ class SellerInfos extends React.Component {
             <Media>
               <Img src="../medias/icons/avatar.png"/>
               <TextBlock>
-                <p>{seller.login}</p>
+                <p className="sellerId">{seller.login}</p>
                 {this.getSellerType()}
               </TextBlock>
             </Media>

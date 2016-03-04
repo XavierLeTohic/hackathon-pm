@@ -52,6 +52,7 @@ class SearchPage extends React.Component {
     }.bind(this))
   }
 
+
   render() {
 
     let products = this.props.products;
@@ -93,7 +94,7 @@ class SearchPage extends React.Component {
 
                           <a href={url}>
                             <p className="topic">{product.topic}</p>
-                            <p className="bestPrice">{product.bestPrice} €<span className="suggest">Offre suggérées</span></p>
+                            <p className="bestPrice">{product.bestPrice} €<span className="suggest">Offre suggérée</span></p>
                             <div className="marketPlace">
                               <p> <span className="price">{product.newBestPrice} €</span> neuf <span className="offers">({product.advertsNewCount} offres)</span></p>
                               <p> <span className="price">{product.usedBestPrice} €</span> d'occasion <span className="offers">({product.advertsUsedCount} offres)</span></p>

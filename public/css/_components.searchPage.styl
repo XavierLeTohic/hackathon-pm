@@ -1,13 +1,37 @@
+.box.searchBlock
+  padding 0
+.header-search
+  border-bottom 1px solid $colorSeparator
+  padding-botom $spacerBase
 .searchBlock
   .pickerList
     flex-grow 1
     display flex
+    align-items: center
+    .custom-select
+      padding-left $spacerBase
+    .custom-select-value
+      font-weight 600
+      display inline-block
+
+    select
+      background $white
+      border none
+      color $colorLink
+      height 50px
+      &:focus
+        outline none
+      &:hover
+        cursor pointer
+      option
+        background none
 
     li
-      margin-right $miniSpacer
+      margin-right $spacerBase
   .productListSearch
     display flex
     justify-content center
+    padding $spacerBase
     li
       padding $spacerBase*2 0
       border-bottom 1px solid $colorSeparator

@@ -25,14 +25,22 @@
   &.list
     .icon
       &:before
-        background-position 0 0
+        background-position 6px 6px
         background-image url('../medias/icons/list.svg')
 
   &.grid
     .icon
       &:before
-        background-position 0 0
+        background-position 6px 6px
         background-image url('../medias/icons/grid.svg')
+
+.imgBtn.list, .imgBtn.grid
+  width 30px
+  height 30px
+  align-self center
+  margin-right $spacerBase
+
+
 
 
 @media only screen and (min-width: $screen-md)
