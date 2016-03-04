@@ -6,6 +6,27 @@
  */
 exports.indexAction = function (req, res) {
 
-    res.render('index', { title: 'Bienvenue sur PriceMinister', cats: process.PM.categories});
+    var waitCat = function() {
+
+      setTimeout(function() {
+
+        if(typeof process.PM.categories === 'undefined') {
+
+          waitCat();
+        }
+        else {
+          res.render('index', { title: 'Bienvenue sur PriceMinister', cats: process.PM.categories});
+        }
+
+      }, 500);
+    };
+
+    if(typeof process.PM.categories === 'undefined') {
+
+      waitCat();
+    }
+    else {
+      res.render('index', { title: 'Bienvenue sur PriceMinister', cats: process.PM.categories});
+    }
 
 };
