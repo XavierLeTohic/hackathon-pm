@@ -2,12 +2,24 @@ var React = require('react');
 
 class DescLayout extends React.Component {
 
-  render () {
+  createMarkup(html) {
+
+    return {__html: html};
+  }
+
+  getProductDescription() {
 
     return (
-      <div >
+      <p dangerouslySetInnerHTML={this.createMarkup(this.props.product.description)}></p>
+    )
+  }
+
+  render() {
+
+    return (
+      <div>
         <h1>Edito et titre</h1>
-        <p>{this.props.product.description}</p>
+        {this.getProductDescription()}
       </div>
     );
   }
