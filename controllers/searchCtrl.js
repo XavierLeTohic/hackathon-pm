@@ -17,7 +17,7 @@ exports.SearchAction = function (req, res) {
 		        if(prop === 'kw'
               || prop === 'category'
               || prop === 'pageNumber'
-              || prop.startsWith('f')) {
+              || prop.split('=')[0] === 'f') {
 
                 if(typeof result[prop] !== 'undefined' && result[prop] !== '') {
 
