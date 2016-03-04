@@ -30,7 +30,7 @@ class ProductAdvertListItem extends React.Component {
         advertId = advert.advertId;
 
     return (
-      <li data-advert data-json={JSON.stringify(advert)} className={this.getClassName(advert)}>
+      <li data-advert data-json={JSON.stringify( { imagesUrls : advert.imagesUrls, salePrice: advert.salePrice, quality: advert.quality, seller: { login : advert.seller.login , type : advert.seller.type } } )} className={this.getClassName(advert)}>
         <Media nameClass="advertItem">
            <Img src="../medias/icons/avatar.png"/>
           <TextBlock>

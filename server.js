@@ -1,6 +1,7 @@
 var express = require('express'),
     jsxEngine = require('express-react-views'),
     chalk = require('chalk'),
+    compression = require('compression'),
 
     routes = require('./routes'),
     app = module.exports.app = exports.app = express(),
@@ -9,6 +10,8 @@ var express = require('express'),
     headersDatas = [{name: 'Accept',value: 'application/json'},{name: 'User-Agent',value: 'HACKATHON Q1.2016'}],
 
     SERVER_PORT = process.env.PORT || 8000;
+
+app.use(compression());
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
