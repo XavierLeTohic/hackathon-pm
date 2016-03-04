@@ -71,6 +71,8 @@ app.listen(SERVER_PORT, function() {
           }
         },
         function(error, response, body) {
+          'use strict';
+
           console.timeEnd(timeKey);
 
           if(error) {
