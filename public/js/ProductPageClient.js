@@ -75,7 +75,6 @@ if(ProductPageClientElm !== null) {
 
     render: function () {
 
-      popin start
       this.modalIsOpen = false;
       this.modalCtn = ProductPageModalElm;
 
