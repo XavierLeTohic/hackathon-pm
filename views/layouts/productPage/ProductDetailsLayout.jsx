@@ -30,7 +30,7 @@ class ProductDetailsLayout extends React.Component {
         return (
             <BoxLayout nameClass="prdDetails">
               <Media nameClass="prdTitle">
-                <Img src={product.images[0].imagesUrls.entry[1].url} nameClass="imgProduct"/>
+                <Img src={product.images[0].imagesUrls.entry[1].url.split('_')[0].replace(".jpg", "") + "_300_300.jpg"} nameClass="imgProduct"/>
                 <TextBlock>
                   <h1 id="prdHeadline">{product.headline}</h1>
                   <p id="prdCaption">{product.caption}</p>
