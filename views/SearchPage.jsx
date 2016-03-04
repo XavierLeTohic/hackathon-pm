@@ -13,7 +13,7 @@ class SearchPage extends React.Component {
   getProductImage(product) {
     if(typeof(product.images) === 'undefined' )
       return 'http://www.lsa-conso.fr/mediatheque/2/5/4/000160452_74.jpg';
-    return(product.images[0].imagesUrls.entry[2].url);
+    return((product.images[0].imagesUrls.entry[0]).url.split('_')[0].replace(".jpg", "") + "_450_450.jpg");
   }
 
   getTargetUrl(key, value) {
