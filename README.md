@@ -1,23 +1,17 @@
-# RES JS
-
-This project used [Express](http://expressjs.com/), [React Express Views](https://github.com/reactjs/express-react-views), and [Stylus](http://stylus-lang.com/).
-Included Babel, Gulp and Live Reload.
-
-The project is a work-in-progress, it's my first open source project. 
-Please feel free to contribute.
+# Hackathon PM
 
 ## Getting started
 
 Clone this project by using the command line interface :
 
 ```bash
-git clone https://github.com/XavierLeTohic/res-js.git
+git clone https://github.com/XavierLeTohic/hackathon-pm.git
 ```
 
 Move into the project directory :
 
 ```bash
-cd res-js/
+cd hackathon-pm/
 ```
 
 Install the npm and bower dependencies :
@@ -27,14 +21,7 @@ npm install
 bower install
 ```
 
-For the first use type :
-
-```bash
-gulp styl
-gulp babel
-```
-
-Then start the server by typing :
+Then run the server by typing :
 
 ```bash
 gulp
